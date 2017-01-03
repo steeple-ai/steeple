@@ -1,7 +1,7 @@
 import { styled } from 'styletron-react';
 
-export const AppContainer = styled('div', {
-  background: 'red',
+export const NotFoundPageContainer = styled('div', {
+  background: 'green',
   height: '100vh',
   width: '100vw',
 });
