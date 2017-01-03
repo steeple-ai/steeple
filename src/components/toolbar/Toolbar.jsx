@@ -7,19 +7,23 @@ import Icon from '../icons/Icon';
 
 import {
   inkBarStyles,
+  logoStyles,
   tabsStyles,
   tabStyles,
   titleStyles,
-  logoStyles,
 } from './styles';
 
 class Toolbar extends PureComponent {
+  onActive(event) {
+    console.log(event);
+  }
+
   render() {
     return (
       <AppBar
         showMenuIconButton={false}
-        titleStyle={titleStyles}
         title={null}
+        titleStyle={titleStyles}
       >
         <Icon
           style={logoStyles}
@@ -29,26 +33,37 @@ class Toolbar extends PureComponent {
         <Tabs
           inkBarStyle={inkBarStyles}
           style={tabsStyles}
+          value="home"
         >
           <Tab
+            label="home"
             style={tabStyles}
-            label="HOME"
+            value="home"
+            onActive={this.onActive}
           />
           <Tab
+            label="congregation"
             style={tabStyles}
-            label="CONGREGATION"
+            value="congregation"
+            onActive={this.onActive}
           />
           <Tab
-            label="TEAM"
+            label="team"
             style={tabStyles}
+            value="team"
+            onActive={this.onActive}
           />
           <Tab
-            label="OFFERING"
+            label="offering"
             style={tabStyles}
+            value="offering"
+            onActive={this.onActive}
           />
           <Tab
-            label="STATUS"
+            label="status"
             style={tabStyles}
+            value="status"
+            onActive={this.onActive}
           />
         </Tabs>
       </AppBar>

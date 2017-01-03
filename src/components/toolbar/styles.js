@@ -1,16 +1,15 @@
 export const titleStyles = {
+  flex: 0,
   width: '0',
 };
 
 export const tabsStyles = {
   paddingLeft: '12px',
-  width: '100%',
-  height: '100%',
+  width: '600px',
+  height: '64px',
 };
 
 export const tabStyles = {
-  padding: '0 24px',
-  width: 'auto',
 };
 
 export const inkBarStyles = {
