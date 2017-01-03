@@ -1,15 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react';
 
-
-import AppBar from 'material-ui/AppBar';
-import {Tabs, Tab} from 'material-ui/Tabs';
+import Toolbar from '../toolbar/Toolbar';
 
 import {
   ApplicationContainer,
-  inkBarStyles,
-  tabsStyles,
-  tabStyles,
-  titleStyles,
 } from './styles';
 
 class Application extends PureComponent {
@@ -24,36 +18,8 @@ class Application extends PureComponent {
 
     return (
       <ApplicationContainer>
-        <AppBar
-          showMenuIconButton={false}
-          titleStyle={titleStyles}
-        >
-          <Tabs
-            inkBarStyle={inkBarStyles}
-            style={tabsStyles}
-          >
-            <Tab
-              style={tabStyles}
-              label="HOME"
-            />
-            <Tab
-              style={tabStyles}
-              label="CONGREGATION"
-            />
-            <Tab
-              label="TEAM"
-              style={tabStyles}
-            />
-            <Tab
-              label="OFFERING"
-              style={tabStyles}
-            />
-            <Tab
-              label="STATUS"
-              style={tabStyles}
-            />
-          </Tabs>
-        </AppBar>
+        <Toolbar/>
+
         {children}
       </ApplicationContainer>
     );
