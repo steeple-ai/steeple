@@ -7,7 +7,7 @@ export const LogoContainer = styled('svg', (props) => {
 
   return {
     overflow: 'hidden',
-    borderRadius: '10000px',
+    borderRadius: '100%', // Can be 100% since the logo is always a square.
     ...style,
   };
 });

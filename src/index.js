@@ -12,6 +12,10 @@ import { StyletronProvider } from 'styletron-react';
 // MaterialUI And Theme Imports
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {
+  deepOrange500,
+  deepOrange700,
+} from 'material-ui/styles/colors';
 
 // InjectTapEvent for MaterialUI
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -29,6 +33,10 @@ const styleElements = document.getElementsByClassName('_styletron_hydrate_');
 // Set our MaterialUI Theme
 const muiTheme = getMuiTheme({
   fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+  palette: {
+    primary1Color: deepOrange500,
+    primary2Color: deepOrange700,
+  },
 });
 
 ReactDOM.render(

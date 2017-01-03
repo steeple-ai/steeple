@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 
-import Toolbar from '../toolbar/Toolbar';
+import Navigation from '../navigation/Navigation';
 
 import {
   ApplicationContainer,
@@ -9,16 +9,20 @@ import {
 class Application extends PureComponent {
   static propTypes = {
     children: PropTypes.node,
+    ...Navigation.propTypes,
   };
 
   render() {
     const {
       children,
+      location,
     } = this.props;
 
     return (
       <ApplicationContainer>
-        <Toolbar/>
+        <Navigation
+          location={location}
+        />
 
         {children}
       </ApplicationContainer>
