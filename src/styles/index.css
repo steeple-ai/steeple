@@ -18,3 +18,10 @@ p,
 body {
   margin: 0;
 }
+
+/* Dumb overrides for material stuff */
+
+.navigation__tab > div {
+  padding: 0 24px;
+}
+

@@ -19,8 +19,6 @@ class Application extends PureComponent {
       router,
     } = this.props;
 
-    console.log(this.props);
-
     return (
       <ApplicationContainer>
         <Navigation

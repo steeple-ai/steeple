@@ -9,8 +9,14 @@ export const tabItemContainerStyles = {
 };
 
 export const tabStyles = {
+  width: 'auto',
 };
 
-export const inkBarStyles = {
-  background: 'white',
+export function getInkBarStyles(activeTabWidth, leftOffset) {
+  return {
+    background: 'white',
+    left: `${leftOffset}px`,
+    width: `${activeTabWidth}px`,
+    transition: 'all 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms',
+  };
 };
