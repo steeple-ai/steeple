@@ -1,12 +1,11 @@
 import React, { PureComponent} from 'react';
 
-
-class Status extends PureComponent {
+class Team extends PureComponent {
   render() {
     return (
-      <div>status</div>
+      <div>team</div>
     );
   }
 }
 
-export default Status;
+export default Team;

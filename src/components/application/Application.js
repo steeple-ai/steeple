@@ -8,16 +8,18 @@ import {
 
 class Application extends PureComponent {
   static propTypes = {
-    children: PropTypes.node,
+    children: PropTypes.any,
     ...Navigation.propTypes,
   };
 
   render() {
     const {
-      children,
+      Component,
       location,
       router,
     } = this.props;
+
+    console.log(this.props);
 
     return (
       <ApplicationContainer>
@@ -26,7 +28,7 @@ class Application extends PureComponent {
           router={router}
         />
 
-        {children}
+        <Component />
       </ApplicationContainer>
     );
   }
