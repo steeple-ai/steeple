@@ -18,6 +18,7 @@ class Navigation extends PureComponent {
   render() {
     const {
       location,
+      router,
     } = this.props;
 
     return (
@@ -33,6 +34,7 @@ class Navigation extends PureComponent {
 
         <TabsWrapper
           location={location}
+          router={router}
         />
       </AppBar>
     );

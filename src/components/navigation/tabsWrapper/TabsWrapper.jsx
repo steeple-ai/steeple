@@ -31,25 +31,28 @@ const navigationItems = {
 class TabsWrapper extends PureComponent {
   static propTypes = {
     location: PropTypes.object,
+    router: PropTypes.object,
   };
 
-  onActive(tab) {
+  onActive = (tab) => {
+    const {
+      router,
+    } = this.props;
 
-  }
+    router.push(tab.props.value);
+  };
 
   render() {
     const {
       location
     } = this.props;
 
-    console.log(location, );
-
     return (
       <Tabs
         inkBarStyle={inkBarStyles}
         style={tabsStyles}
         tabItemContainerStyle={tabItemContainerStyles}
-        value={navigationItems[location.pathname].value}
+        value={location.pathname}
       >
         {map(navigationItems, (navigationItem, key) => (
           <Tab
@@ -57,7 +60,7 @@ class TabsWrapper extends PureComponent {
             label={navigationItem.value}
             onActive={this.onActive}
             style={tabStyles}
-            value={navigationItem.value}
+            value={key}
           />
         ))}
       </Tabs>

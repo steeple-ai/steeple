@@ -16,12 +16,14 @@ class Application extends PureComponent {
     const {
       children,
       location,
+      router,
     } = this.props;
 
     return (
       <ApplicationContainer>
         <Navigation
           location={location}
+          router={router}
         />
 
         {children}
