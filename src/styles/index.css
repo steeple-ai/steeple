@@ -21,6 +21,11 @@ body {
 
 /* Dumb overrides for material stuff */
 
+/*
+  Need to add padding to the inside of the tabs to match material spec. Problem is that when you use the tab key to
+  select them, another div is added as a child of navigation__tab. Using last-of-type to select the last div which is
+  always the text of the button.
+*/
 .navigation__tab > div:last-of-type {
   padding: 0 24px;
 }
