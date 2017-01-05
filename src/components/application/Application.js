@@ -7,6 +7,7 @@ import FloatingActionButtonWrapper from './floatingActionButtonWrapper/FloatingA
 import {
   ApplicationContainer,
   Main,
+  Shadow,
 } from './styles';
 
 class Application extends PureComponent {
@@ -60,9 +61,12 @@ class Application extends PureComponent {
       <ApplicationContainer>
         <Navigation
           location={location}
-          isMainScrolled={isMainScrolled}
           router={router}
       />
+        <Shadow
+          isActive={isMainScrolled}
+        />
+
         <Main
           onScroll={this.onScrollMain}
           innerRef={(r) => this.main = r} // Have to use innerRef since this is a styletron component.
