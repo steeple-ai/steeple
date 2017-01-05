@@ -1,9 +1,19 @@
 import React, { PureComponent} from 'react';
+import Paper from 'material-ui/Paper';
+
+import {
+  containerStyles,
+} from './styles';
 
 class Status extends PureComponent {
   render() {
     return (
-      <div>status</div>
+      <Paper
+        style={containerStyles}
+        zDepth={1}
+      >
+        status
+      </Paper>
     );
   }
 }
