@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import Avatar from 'material-ui/Avatar';
+import Divider from 'material-ui/Divider';
 import Menu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import Popover from 'material-ui/Popover';
@@ -60,6 +61,7 @@ class UserSettings extends PureComponent {
           <Menu>
             <MenuItem primaryText="Help &amp; feedback" />
             <MenuItem primaryText="Settings" />
+            <Divider />
             <MenuItem primaryText="Sign out" />
           </Menu>
         </Popover>

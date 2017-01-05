@@ -1,9 +1,11 @@
 import React, { PureComponent, PropTypes } from 'react';
 
 import Navigation from '../navigation/Navigation';
+import FloatingActionButtonWrapper from './floatingActionButtonWrapper/FloatingActionButtonWrapper';
 
 import {
   ApplicationContainer,
+  Main,
 } from './styles';
 
 class Application extends PureComponent {
@@ -26,7 +28,11 @@ class Application extends PureComponent {
           router={router}
         />
 
-        <Component />
+        <Main>
+          <Component />
+        </Main>
+
+        <FloatingActionButtonWrapper/>
       </ApplicationContainer>
     );
   }

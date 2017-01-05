@@ -1,11 +1,13 @@
+import { layout } from '../../../styles';
+
 export const tabsStyles = {
   paddingLeft: '12px',
   width: 'auto',
-  height: '64px',
+  height: layout.navigation.height,
 };
 
 export const tabItemContainerStyles = {
-  height: '64px',
+  height: layout.navigation.height,
 };
 
 export function getTabStyles(isActive) {
