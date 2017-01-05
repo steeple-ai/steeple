@@ -45,6 +45,54 @@ class Application extends PureComponent {
         }
       }
     }, 100);
+
+
+    this.scrollMainToTop = () => {
+      const scrollDuration = this.main.scrollTop;
+
+      // If scrollTop is 0, don't run the function.
+      if (scrollDuration === 0) {
+        return;
+      }
+
+      // Get a time stamp and a count started.
+      let oldTimestamp = performance.now();
+      let scrollCount = 0;
+
+      // Step function used by requestAnimationFrame to make this nice and smooth,
+      const step = (newTimestamp) => {
+        // We are making an ease curve out of scrollCount. Using Math.PI and Math.cos,
+        scrollCount += Math.PI / (scrollDuration / (newTimestamp - oldTimestamp));
+
+        // If the scroll count has gone outside the bounds of PI, we set the scroll top to 0.
+        if (scrollCount >= Math.PI) {
+          this.main.scrollTop = 0;
+        }
+
+        // If the scroll top is 0, end the function. We did our job.
+        if (this.main.scrollTop === 0) {
+          return;
+        }
+
+        // Set the scroll top base on our easing curve times the duration. Higher duration, longer curve.
+        this.main.scrollTop = Math.round(scrollDuration * Math.cos(scrollCount));
+
+        // Reset timestamp.
+        oldTimestamp = newTimestamp;
+
+        // Recall function.
+        window.requestAnimationFrame(step);
+      };
+
+      // Initiate the scroll animation.
+      window.requestAnimationFrame(step);
+    }
+  }
+
+  componentWillUpdate(nextProps) {
+    if (nextProps.Component !== this.props.Component) {
+      this.scrollMainToTop();
+    }
   }
 
   render() {
