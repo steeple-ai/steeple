@@ -41,6 +41,33 @@ class TabsWrapper extends PureComponent {
       activeTabWidth: null, // Needs to be null or there is a strange animation on load.
       leftOffset: null, // Needs to be null or there is a strange animation on load.
     };
+
+    this.onActive = (tab) => {
+      const {
+        location,
+        router,
+      } = this.props;
+
+      // Get new active tab so inkBar can move to location.
+      const activeTab = document.querySelectorAll(`.navigation__tab--${tab.props.label}`);
+
+      // Call helper to set state.
+      this.setActiveTabState(activeTab);
+
+      // Check if new route is different that current route.
+      if (tab.props.value !== location.pathname) {
+        // Push the route to router so that we can go there.
+        router.push(tab.props.value);
+      }
+    };
+
+    this.setActiveTabState = (activeTab) => this.setState({
+      // Get width of active tab, will become the width of inkBar.
+      activeTabWidth: activeTab[0].offsetWidth,
+      // Get the left offset of the activeTab. This is off of the viewport, no the parent.
+      // We therefor need to get the offset of the first tab, and subtract that off.
+      leftOffset: activeTab[0].offsetLeft - document.querySelectorAll('.navigation__tab')[0].offsetLeft,
+    });
   }
 
   componentDidMount() {
@@ -66,33 +93,6 @@ class TabsWrapper extends PureComponent {
 
     return false;
   }
-
-  onActive = (tab) => {
-    const {
-      location,
-      router,
-    } = this.props;
-
-    // Get new active tab so inkBar can move to location.
-    const activeTab = document.querySelectorAll(`.navigation__tab--${tab.props.label}`);
-
-    // Call helper to set state.
-    this.setActiveTabState(activeTab);
-
-    // Check if new route is different that current route.
-    if (tab.props.value !== location.pathname) {
-      // Push the route to router so that we can go there.
-      router.push(tab.props.value);
-    }
-  };
-
-  setActiveTabState = (activeTab) => this.setState({
-    // Get width of active tab, will become the width of inkBar.
-    activeTabWidth: activeTab[0].offsetWidth,
-    // Get the left offset of the activeTab. This is off of the viewport, no the parent.
-    // We therefor need to get the offset of the first tab, and subtract that off.
-    leftOffset: activeTab[0].offsetLeft - document.querySelectorAll('.navigation__tab')[0].offsetLeft,
-  });
 
   render() {
     const {

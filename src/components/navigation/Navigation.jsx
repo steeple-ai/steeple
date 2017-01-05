@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
 import AppBar from 'material-ui/AppBar';
 
@@ -13,12 +13,14 @@ import {
 
 class Navigation extends PureComponent {
   static propTypes = {
+    navigationZDepth: PropTypes.number,
     ...TabsWrapper.propTypes
   };
 
   render() {
     const {
       location,
+      navigationZDepth,
       router,
     } = this.props;
 
@@ -27,6 +29,7 @@ class Navigation extends PureComponent {
         showMenuIconButton={false}
         title={null}
         titleStyle={titleStyles}
+        zDepth={navigationZDepth}
       >
         <Icon
           style={logoStyles}
