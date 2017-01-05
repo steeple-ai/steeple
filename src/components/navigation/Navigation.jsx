@@ -7,30 +7,40 @@ import TabsWrapper from './tabsWrapper/TabsWrapper';
 import UserSettings from './userSettings/UserSettings';
 
 import {
+  Shadow,
+  appBarStyles,
   logoStyles,
   titleStyles,
 } from './styles';
 
 class Navigation extends PureComponent {
   static propTypes = {
-    navigationZDepth: PropTypes.number,
+    isMainScrolled: PropTypes.bool,
+    muiTheme: PropTypes.object,
     ...TabsWrapper.propTypes
   };
 
   render() {
     const {
+      isMainScrolled,
       location,
-      navigationZDepth,
+      muiTheme,
       router,
     } = this.props;
 
     return (
       <AppBar
         showMenuIconButton={false}
+        style={appBarStyles}
         title={null}
         titleStyle={titleStyles}
-        zDepth={navigationZDepth}
+        zDepth={0}
       >
+        <Shadow
+          isActive={isMainScrolled}
+          muiTheme={muiTheme}
+        />
+
         <Icon
           style={logoStyles}
           name="logo"

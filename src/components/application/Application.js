@@ -19,27 +19,27 @@ class Application extends PureComponent {
     super(props);
 
     this.state = {
-      navigationZDepth: 0,
+      isMainScrolled: false,
     };
 
     this.onScrollMain = throttle(() => {
       if (!!this.main.scrollTop) {
         // Check is there is a scrollTop
-        if (this.state.navigationZDepth !== 2) {
-          // Check that we have not set the navigationZDepth to reflect that already.
+        if (!this.state.isMainScrolled) {
+          // Check that we have not set the isMainScrolled to true.
 
           this.setState({
-            navigationZDepth: 2,
+            isMainScrolled: true,
           })
         }
       } else {
         // scrollTop is 0.
 
-        if (this.state.navigationZDepth !== 0) {
-          // CHeck that we have set navigationZDepth to reflect that already.
+        if (this.state.isMainScrolled) {
+          // Check that we have not set the isMainScrolled to false.
 
           this.setState({
-            navigationZDepth: 0,
+            isMainScrolled: false,
           })
         }
       }
@@ -53,17 +53,16 @@ class Application extends PureComponent {
       router,
     } = this.props;
     const {
-      navigationZDepth,
+      isMainScrolled,
     } = this.state;
 
     return (
       <ApplicationContainer>
         <Navigation
           location={location}
-          navigationZDepth={navigationZDepth}
+          isMainScrolled={isMainScrolled}
           router={router}
       />
-
         <Main
           onScroll={this.onScrollMain}
           innerRef={(r) => this.main = r} // Have to use innerRef since this is a styletron component.
