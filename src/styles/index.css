@@ -21,6 +21,6 @@ body {
 
 /* Dumb overrides for material stuff */
 
-.navigation__tab > div {
+.navigation__tab > div:last-of-type {
   padding: 0 24px;
 }
