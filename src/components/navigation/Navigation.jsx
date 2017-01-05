@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 
 import AppBar from 'material-ui/AppBar';
-import TabsWrapper from './tabsWrapper/TabsWrapper';
 
 import Icon from '../icons/Icon';
+import TabsWrapper from './tabsWrapper/TabsWrapper';
+import UserSettings from './userSettings/UserSettings';
 
 import {
   logoStyles,
@@ -36,6 +37,8 @@ class Navigation extends PureComponent {
           location={location}
           router={router}
         />
+
+        <UserSettings />
       </AppBar>
     );
   }

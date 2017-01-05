@@ -1,6 +1,6 @@
 export const tabsStyles = {
   paddingLeft: '12px',
-  width: '700px',
+  width: 'auto',
   height: '64px',
 };
 
@@ -8,8 +8,18 @@ export const tabItemContainerStyles = {
   height: '64px',
 };
 
-export const tabStyles = {
-  width: 'auto',
+export function getTabStyles(isActive) {
+  // We want active tabs to not have hover state or pointer events so that users don't think of clicking them.
+  const isActiveStyles = isActive && {
+    cursor: 'default',
+    pointerEvents: 'none',
+  };
+
+  return {
+    userSelect: 'none',
+    width: 'auto',
+    ...isActiveStyles,
+  };
 };
 
 export function getInkBarStyles(activeTabWidth, leftOffset) {

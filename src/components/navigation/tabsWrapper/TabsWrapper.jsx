@@ -7,7 +7,7 @@ import {
   getInkBarStyles,
   tabItemContainerStyles,
   tabsStyles,
-  tabStyles,
+  getTabStyles,
 } from './styles';
 
 const navigationItems = {
@@ -55,8 +55,21 @@ class TabsWrapper extends PureComponent {
     this.setActiveTabState(activeTab);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextProps.location.pathname !== this.props.location.pathname) {
+      return true;
+    } else if (nextState.activeTabWidth !== this.state.activeTabWidth) {
+      return true;
+    } else if (nextState.leftOffset !== this.state.leftOffset) {
+      return true;
+    }
+
+    return false;
+  }
+
   onActive = (tab) => {
     const {
+      location,
       router,
     } = this.props;
 
@@ -66,8 +79,11 @@ class TabsWrapper extends PureComponent {
     // Call helper to set state.
     this.setActiveTabState(activeTab);
 
-    // Push the route to router so that we can go there.
-    router.push(tab.props.value);
+    // Check if new route is different that current route.
+    if (tab.props.value !== location.pathname) {
+      // Push the route to router so that we can go there.
+      router.push(tab.props.value);
+    }
   };
 
   setActiveTabState = (activeTab) => this.setState({
@@ -100,7 +116,7 @@ class TabsWrapper extends PureComponent {
             key={key}
             label={navigationItem.value}
             onActive={this.onActive}
-            style={tabStyles}
+            style={getTabStyles(location.pathname === key)}
             value={key}
           />
         ))}
