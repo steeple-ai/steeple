@@ -19,6 +19,7 @@ export function getTabStyles(isActive) {
 
   return {
     userSelect: 'none',
+    height: '100%',
     width: 'auto',
     ...isActiveStyles,
   };

@@ -12,7 +12,7 @@ import {
 
 class Application extends PureComponent {
   static propTypes = {
-    children: PropTypes.any,
+    Component: PropTypes.func,
     ...Navigation.propTypes,
   };
 

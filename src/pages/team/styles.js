@@ -1,8 +1,14 @@
-export const containerStyles = {
-  flexShrink: 0,
-  marginTop: '48px',
-  marginBottom: '48px',
-  width: '1048px',
-  height: '200vh',
-  padding: '24px 16px',
+import { styled } from 'styletron-react';
+import { color, utility } from '../../styles';
+
+export const TeamContainer = styled('div', {
+  ...utility.flexFlow('row', 'nowrap'),
+  flex: 1,
+  width: '100%',
+});
+
+export const listStyles = {
+  boxSizing: 'border-box',
+  borderRight: `1px solid ${color.grey85}`,
+  width: '360px',
 };

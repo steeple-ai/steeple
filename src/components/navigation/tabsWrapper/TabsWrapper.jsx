@@ -14,11 +14,11 @@ const navigationItems = {
   '/': {
     value: 'home',
   },
-  '/congregation': {
-    value: 'congregation'
-  },
   '/team': {
     value: 'team',
+  },
+  '/congregation': {
+    value: 'congregation'
   },
   '/offering': {
     value: 'offering',
