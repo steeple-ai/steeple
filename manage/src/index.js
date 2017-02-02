@@ -17,6 +17,9 @@ import {
   deepOrange700,
 } from 'material-ui/styles/colors';
 
+import theme from 'assets/react-toolbox/theme'
+import ThemeProvider from 'react-toolbox/lib/ThemeProvider';
+
 // InjectTapEvent for MaterialUI
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -42,7 +45,9 @@ const muiTheme = getMuiTheme({
 ReactDOM.render(
   <StyletronProvider styletron={new Styletron(styleElements)}>
     <MuiThemeProvider muiTheme={muiTheme}>
-      {Router}
+      <ThemeProvider theme={theme}>
+        {Router}
+      </ThemeProvider>
     </MuiThemeProvider>
   </StyletronProvider>,
   document.getElementById('root')

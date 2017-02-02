@@ -1,6 +1,8 @@
 import React, { PureComponent} from 'react';
 import Paper from 'material-ui/Paper';
 
+import { Button } from 'react-toolbox/lib/button/Button.js';
+
 import {
   containerStyles,
 } from './styles';
