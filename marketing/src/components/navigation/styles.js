@@ -8,13 +8,13 @@ export const NavigationContainer = styled('div', {
 
   height: layout.navigation.height,
 
-  padding: '8px',
+  padding: '8px 32px',
 });
 
 const logoSize = '64px';
 
 export const LogoStyles = {
-  margin: '8px',
+  margin: '8px 32px',
 
   height: logoSize,
   width: logoSize,

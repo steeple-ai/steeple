@@ -9,6 +9,14 @@ export const HeroContainer = styled('div', {
   flex: 1,
 
   padding: '197px 64px 0 260px',
+
+  '@media (max-width: 1108px)': {
+    padding: '197px 64px 0',
+  },
+
+  '@media (max-width: 767px)': {
+    padding: '128px 16px 0',
+  },
 });
 
 export const Title = styled('h1', {
@@ -18,4 +26,9 @@ export const Title = styled('h1', {
 
   marginTop: '67px',
   marginLeft: '26px',
+
+  '@media (max-width: 767px)': {
+    marginTop: '35px',
+    marginLeft: 0,
+  },
 });

@@ -7,5 +7,11 @@ export const LogotypeContainer = styled('svg', (props) => {
 
   return {
     ...style,
+
+    '@media (max-width: 1108px)': {
+      width: '100%',
+      maxWidth: '589px',
+      height: 'auto',
+    }
   };
 });
