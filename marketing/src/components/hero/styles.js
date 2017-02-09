@@ -1,56 +1,21 @@
-import {styled} from 'styletron-react';
+import { styled } from 'styletron-react';
 
-import Logotype from './logotype/Logotype';
+import { color } from '../../styles/';
 
-export const LogotypeLightBlue = styled(Logotype, {
-  top: '342px',
-  left: '-180px',
+export const HeroContainer = styled('div', {
+  backgroundImage: 'linear-gradient(135deg, rgb(255, 87, 34) 0%, rgb(255, 87, 34) 70.8vh, rgb(255, 193, 7) 70.8vh, rgb(255, 87, 34) 100%)',
+  // background: color.deepOrange500,
 
-  transform: 'rotate(-16.9deg)',
+  flex: 1,
+
+  padding: '197px 64px 0 260px',
 });
 
-export const LogotypeDarkBlue = styled(Logotype, {
-  top: '341px',
-  left: '-269px',
+export const Title = styled('h1', {
+  fontSize: '64px',
+  fontWeight: 400,
+  color: color.white,
 
-  transform: 'rotate(16.9deg)',
-});
-
-export const Container = styled('div', {
-  overflow: 'hidden',
-
-  position: 'absolute',
-  left: '50%',
-  zIndex: '10',
-
-  height: '100vh',
-  width: '320px',
-
-  transform: 'translateX(-50%)',
-});
-
-export const Circle = styled('div', {
-  background: 'transparent',
-
-  position: 'absolute',
-
-  top: 'calc(-50vh - 159px - 60px + 25vh)',
-  left: 'calc(-50vh - 128px)',
-
-
-  margin: '32px 32px -196px',
-
-  borderRadius: '100%',
-  border: 'calc(50vh + 128px) solid #FF5722',
-
-  height: '256px',
-  width: '256px',
-});
-
-
-export const TriangleContainer = styled('div', {
-  position: 'relative',
-  zIndex: '10',
-
-  marginTop: '25vh',
+  marginTop: '67px',
+  marginLeft: '26px',
 });
