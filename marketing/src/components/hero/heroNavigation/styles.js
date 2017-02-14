@@ -8,7 +8,7 @@ export const HeroNavigationContainer = styled('div', {
 
   boxSizing: 'border-box',
 
-  height: layout.navigation.height,
+  height: layout.heroNavigation.height,
 
   padding: '8px 32px',
 

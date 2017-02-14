@@ -14,7 +14,7 @@ export const MainContent = styled('div', {
 
   flex: 1,
 
-  marginTop: `-${layout.navigation.height}`,
+  marginTop: `-${layout.heroNavigation.height}`,
 
   padding: '197px 64px 0 260px',
 
@@ -30,7 +30,6 @@ export const MainContent = styled('div', {
 
 export const Title = styled('h1', {
   fontSize: '64px',
-  fontWeight: 400,
   color: color.white,
 
   marginTop: '67px',

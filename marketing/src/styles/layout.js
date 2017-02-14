@@ -1,5 +1,8 @@
 export default {
-  navigation: {
+  heroNavigation: {
     height: '100px',
-  }
+  },
+  toolbar: {
+    height: '56px',
+  },
 };
