@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Router from 'react-router-dom/BrowserRouter';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
-import createHistory from 'history/createBrowserHistory'
+import createBrowserHistory from 'history/createBrowserHistory'
 
 
 // Import Route components.
@@ -20,7 +20,7 @@ const NoMatch = () => <Hero />;
 class Application extends Component {
   render() {
     return (
-      <Router history={createHistory()}>
+      <Router history={createBrowserHistory()}>
         <ApplicationContainer>
           <Switch>
             <Route exact path="/" component={Hero} />

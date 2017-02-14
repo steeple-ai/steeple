@@ -1,9 +1,9 @@
 import { styled } from 'styletron-react';
-import { layout } from '../../styles';
+import { layout } from '../../../styles';
 
-import Logo from '../logo/Logo';
+import Logo from '../../logo/Logo';
 
-export const NavigationContainer = styled('div', {
+export const HeroNavigationContainer = styled('div', {
   position: 'relative', // Needs pos: r so that it renders above the content bellow.
 
   boxSizing: 'border-box',

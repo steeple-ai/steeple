@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import Logotype from '../logotype/Logotype';
-import Navigation from '../navigation/Navigation';
-
+import HeroNavigation from './heroNavigation/HeroNavigation';
 
 import {
   HeroContainer,
@@ -14,7 +13,7 @@ class Hero extends Component {
   render() {
     return (
       <HeroContainer>
-        <Navigation />
+        <HeroNavigation />
 
         <MainContent>
           <Logotype />
