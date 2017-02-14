@@ -22,6 +22,7 @@ export default {
   grey73: 'hsl(0, 0%, 73%)',
   grey70: 'hsl(0, 0%, 70%)',
   grey65: 'hsl(0, 0%, 65%)',
+  grey62: 'hsl(0, 0%, 62%)',
   grey60: 'hsl(0, 0%, 60%)',
   grey37: 'hsl(0, 0%, 37%)',
   grey33: 'hsl(0, 0%, 33%)',

@@ -2,36 +2,69 @@ import { styled } from 'styletron-react';
 import { color, layout, utility } from '../../styles';
 
 
-export const StepContainer = styled('div', {
-  ...utility.flexFlow('column', 'nowrap'),
+export const StepContainer = styled('div', (props) => {
+  const {
+    isActive,
+    isComplete,
+  } = props;
 
-  margin: layout.stepper.space,
+  const stateStyles = isComplete || isActive ? {
+    flex: 1,
+  } : {
+    flex: '0 1 40px',
+  };
+
+  return {
+    ...utility.flexFlow('column', 'nowrap'),
+    overflow: 'hidden',
+
+    margin: layout.stepper.space,
+
+    ...stateStyles,
+  }
 });
 
 export const StepHeader = styled('div', {
   ...utility.flexFlow('row', 'nowrap'),
   alignItems: 'center',
+  flexShrink: 0,
 });
 
 const stepCountBorderWidth = 8;
 const stepCountSize = '24px';
 
-export const StepCount = styled('span', {
-  background: color.amber500,
+export const StepCount = styled('span', (props) => {
+  const {
+    isActive,
+    isComplete,
+  } = props;
 
-  fontSize: '13px',
+  const stateStyles = isComplete || isActive ? {
+    background: color.amber500,
+    color: color.textColor,
+  } : {
+    background: color.grey92,
+    color: color.white,
+  };
 
-  ...utility.flexFlow('row', 'nowrap'),
-  justifyContent: 'center',
-  alignItems: 'center',
 
-  marginLeft: `-${stepCountBorderWidth}px`,
+  return {
+    fontSize: '13px',
 
-  borderRadius: '100%',
-  border: `${stepCountBorderWidth}px solid ${color.white}`,
+    ...utility.flexFlow('row', 'nowrap'),
+    justifyContent: 'center',
+    alignItems: 'center',
 
-  height: stepCountSize,
-  width: stepCountSize,
+    marginLeft: `-${stepCountBorderWidth}px`,
+
+    borderRadius: '100%',
+    border: `${stepCountBorderWidth}px solid ${color.white}`,
+
+    height: stepCountSize,
+    width: stepCountSize,
+
+    ...stateStyles,
+  }
 });
 
 const stepTitleLeftSpace = 24 - stepCountBorderWidth;
@@ -46,6 +79,10 @@ export const StepTitle = styled('h1', {
 
 export const StepBody = styled('div', {
   ...utility.flexFlow('column', 'nowrap'),
+  flexShrink: 0,
+
+  paddingTop: '2px',
+  paddingLeft: '48px',
 });
 
 export const StepContent = styled('div', {

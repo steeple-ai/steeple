@@ -14,9 +14,23 @@ class Give extends Component {
       <GiveContainer>
         <Toolbar title="C3 Equippers" />
 
-        <Stepper>
+        <Stepper
+          stepIndex={1}
+        >
           <Step
             title="Who are you?"
+          >
+            step content
+          </Step>
+
+          <Step
+            title="Tithe & Offering"
+          >
+            step content
+          </Step>
+
+          <Step
+            title="Payment Information"
           >
             step content
           </Step>

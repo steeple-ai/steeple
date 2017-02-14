@@ -5,8 +5,8 @@ import {
   StepBody,
   StepContainer,
   StepContent,
-  StepHeader,
   StepCount,
+  StepHeader,
   StepTitle,
 } from './styles';
 
@@ -14,13 +14,24 @@ class Step extends Component {
   render() {
     const {
       children,
+      isActive,
+      isComplete,
+      stepNumber,
       title,
     } = this.props;
 
     return (
-      <StepContainer>
+      <StepContainer
+        isActive={isActive}
+        isComplete={isComplete}
+      >
         <StepHeader>
-          <StepCount>1</StepCount>
+          <StepCount
+            isActive={isActive}
+            isComplete={isComplete}
+          >
+            {stepNumber}
+          </StepCount>
 
           <StepTitle>{title}</StepTitle>
         </StepHeader>
@@ -48,6 +59,9 @@ Step.defaultProps = {
 
 Step.propTypes = {
   children: PropTypes.node,
+  isActive: PropTypes.bool,
+  isComplete: PropTypes.bool,
+  stepNumber: PropTypes.number,
   title: PropTypes.string,
 };
 
