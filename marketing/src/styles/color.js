@@ -30,4 +30,8 @@ export default {
   grey10: 'hsl(0, 0%, 10%)',
 
   deepOrange500: 'hsl(14, 100%, 57%)',
+
+  amber500: 'hsl(45, 100%, 51%)',
+
+  textColor: 'hsla(0, 0%, 0%, .87)',
 };

@@ -5,4 +5,7 @@ export default {
   toolbar: {
     height: '56px',
   },
+  stepper: {
+    space: `${24 / 2}px`,
+  }
 };
