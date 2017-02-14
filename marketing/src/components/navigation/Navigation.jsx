@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 
-import Logo from '../logo/Logo';
-
 import {
   NavigationContainer,
-  LogoStyles,
+  LogoStyled,
 } from './styles';
 
 class Navigation extends Component {
   render() {
     return (
       <NavigationContainer>
-        <Logo style={LogoStyles} />
+        <LogoStyled />
       </NavigationContainer>
     );
   }
