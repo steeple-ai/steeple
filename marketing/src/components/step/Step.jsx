@@ -27,7 +27,10 @@ class Step extends Component {
     } = this.props;
 
     return (
-      <StepContainer isActive={isActive}>
+      <StepContainer
+        isActive={isActive}
+        isLastStep={isLastStep}
+      >
         <StepHeader>
           <StepCount
             isActive={isActive}
