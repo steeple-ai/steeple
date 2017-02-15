@@ -130,7 +130,7 @@ export const StepBody = styled('div', (props) => {
 });
 
 export const StepContent = styled('div', {
-  ...utility.flexFlow('row', 'nowrap'),
+  ...utility.flexFlow('column', 'nowrap'),
   flex: 1,
 });
 

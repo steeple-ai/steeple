@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Input from 'react-toolbox/lib/input/Input';
+
 import Toolbar from '../toolbar/Toolbar';
 import Stepper from '../stepper/Stepper';
 import Step from '../step/Step';
@@ -20,7 +22,8 @@ class Give extends Component {
           <Step
             title="Who are you?"
           >
-            step content
+            <Input icon="person" type='text' label='Name' name='name' />
+            <Input type='text' label='Email' name='email' />
           </Step>
 
           <Step
