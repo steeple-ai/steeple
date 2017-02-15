@@ -3,12 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.9"
+    "react-scripts": "0.9",
+    "react-toolbox-themr": "^1.0.2"
   },
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router-dom": "next",
+    "react-toolbox": "^2.0.0",
     "styletron-client": "^2.5.1",
     "styletron-react": "^2.5.2"
   },
@@ -16,7 +18,23 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "toolbox": "react-toolbox-themr"
+  },
+  "reactToolbox": {
+    "include": [
+      "BUTTON"
+    ],
+    "customProperties": {
+      "preferred-font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "animation-duration": "0.3s",
+      "color-primary": "var(--palette-amber-500)",
+      "color-accent": "var(--palette-pink-a200)",
+      "color-accent-dark": "var(--palette-pink-700)",
+      "color-primary-contrast": "var(--color-dark-contrast)",
+      "color-accent-contrast": "var(--color-dark-contrast)"
+    },
+    "output": "public/react-toolbox"
   },
   "eslintConfig": {
     "extends": "react-app"

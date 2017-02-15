@@ -1,6 +1,7 @@
 import { styled } from 'styletron-react';
 import { color, layout, utility } from '../../styles';
 
+import Button from 'react-toolbox/lib/button/Button'
 
 const transition = 'all ease 300ms';
 
@@ -10,9 +11,9 @@ export const StepContainer = styled('div', (props) => {
   } = props;
 
   const stateStyles = isActive ? {
-    flex: 1,
+    flex: '1 1 48px',
   } : {
-    flex: '0 1 40px',
+    flex: '0 1 48px',
   };
 
   return {
@@ -113,3 +114,6 @@ export const ActionBar = styled('div', {
   ...utility.flexFlow('row', 'nowrap'),
 });
 
+export const ButtonStyled = styled(Button, {
+  boxShadow: 'none !important',
+});

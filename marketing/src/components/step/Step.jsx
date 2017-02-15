@@ -1,7 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 
+import Button from 'react-toolbox/lib/button/Button'
+
 import {
   ActionBar,
+  ButtonStyled,
   StepBody,
   StepContainer,
   StepContent,
@@ -40,8 +43,14 @@ class Step extends Component {
             {children}
           </StepContent>
           <ActionBar>
-            {stepNumber !== 1 && <button onClick={onClickBack}>back</button>}
-            <button onClick={onClickNext}>next</button>
+            {stepNumber !== 1 && <Button onClick={onClickBack}>back</Button>}
+            <ButtonStyled
+              onClick={onClickNext}
+              primary
+              raised
+            >
+              next
+            </ButtonStyled>
           </ActionBar>
         </StepBody>
 
