@@ -48,12 +48,17 @@ class Step extends Component {
           </StepContent>
           <ActionBar>
             {stepNumber !== 1 && <Button onClick={onClickBack}>back</Button>}
-            {!isLastStep && <ButtonStyled
+            {!isLastStep ? <ButtonStyled
               onClick={onClickNext}
               primary
               raised
             >
               next
+            </ButtonStyled> : <ButtonStyled
+              primary
+              raised
+            >
+              finish
             </ButtonStyled>}
           </ActionBar>
         </StepBody>

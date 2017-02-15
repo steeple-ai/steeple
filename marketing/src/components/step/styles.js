@@ -3,7 +3,7 @@ import { color, layout, utility } from '../../styles';
 
 import Button from 'react-toolbox/lib/button/Button'
 
-const transition = 'all 300ms ease 250ms';
+const transition = 'all 300ms ease 100ms';
 
 export const StepContainer = styled('div', (props) => {
   const {
@@ -89,7 +89,7 @@ export const StepCount = styled('span', (props) => {
     width: stepCountSize,
 
     transition,
-    
+
     ...stateStyles,
   }
 });
