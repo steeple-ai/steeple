@@ -12,9 +12,11 @@ export const StepContainer = styled('div', (props) => {
   } = props;
 
   const stateStyles = isActive ? {
-    flex: '1 1 48px',
+    flexGrow: 1,
+    // flex: '1 1 48px',
   } : {
-    flex: '0 1 48px',
+    flexGrow: 0,
+    // flex: '0 1 48px',
   };
 
   // This is the grey line that runs under each step.
@@ -35,6 +37,8 @@ export const StepContainer = styled('div', (props) => {
 
   return {
     ...utility.flexFlow('column', 'nowrap'),
+    flexShrink: 0,
+    flexBasis: '48px',
 
     position: 'relative',
 
@@ -117,7 +121,6 @@ export const StepBody = styled('div', (props) => {
 
   return {
     ...utility.flexFlow('column', 'nowrap'),
-    flex: 1,
     flexShrink: 0,
 
     paddingTop: '2px',
@@ -131,12 +134,13 @@ export const StepBody = styled('div', (props) => {
 
 export const StepContent = styled('div', {
   ...utility.flexFlow('column', 'nowrap'),
-  flex: 1,
+  flexShrink: 0,
 });
 
 
 export const ActionBar = styled('div', {
   ...utility.flexFlow('row', 'nowrap'),
+  flexShrink: 0,
 });
 
 export const ButtonStyled = styled(Button, {

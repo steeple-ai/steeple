@@ -1,11 +1,22 @@
 html {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  overflow: hidden;
 }
 
 body {
   background: hsl(0, 0%, 100%);
+
+  width: 100%;
+
   padding: 0;
+}
+
+html,
+body {
+  overflow: hidden;
+
+  position: fixed;
+
+  height: 100%;
 }
 
 h1,
@@ -28,7 +39,9 @@ h6 {
   font-weight: 400;
 }
 
-button {
-  appearance: none;
-  border: none;
+#root {
+  overflow: hidden;
+
+  height: 100%;
 }
+

@@ -12,6 +12,7 @@ export const ToolbarContainer = styled('div', {
 
   ...utility.flexFlow('row', 'nowrap'),
   alignItems: 'center',
+  flexShrink: 0,
 
   position: 'relative', // Needs pos: r so that it renders above the content bellow.
 

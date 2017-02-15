@@ -22,8 +22,20 @@ class Give extends Component {
           <Step
             title="Who are you?"
           >
-            <Input icon="person" type='text' label='Name' name='name' />
-            <Input type='text' label='Email' name='email' />
+            <Input
+              icon="person"
+              label='Name'
+              name='name'
+              required
+              type='text'
+            />
+            <Input
+              icon="email"
+              label='Email'
+              name='email'
+              required
+              type='email'
+            />
           </Step>
 
           <Step

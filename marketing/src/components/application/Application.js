@@ -6,7 +6,6 @@ import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 import createBrowserHistory from 'history/createBrowserHistory'
 
-
 // Import Route components.
 import Hero from '../hero/Hero';
 import Give from '../give/Give';

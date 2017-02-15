@@ -4,6 +4,6 @@ import { utility } from '../../styles';
 export const ApplicationContainer = styled('div', {
   ...utility.flexFlow('column', 'nowrap'),
 
-  minHeight: '100vh',
+  height: '100%',
 });
 
