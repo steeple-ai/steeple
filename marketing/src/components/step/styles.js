@@ -67,7 +67,7 @@ export const StepCount = styled('span', (props) => {
   }
 });
 
-const stepTitleLeftSpace = 24 - stepCountBorderWidth;
+const stepTitleLeftSpace = 16 - stepCountBorderWidth;
 
 export const StepTitle = styled('h1', {
   fontSize: '14px',
@@ -82,7 +82,7 @@ export const StepBody = styled('div', {
   flexShrink: 0,
 
   paddingTop: '2px',
-  paddingLeft: '48px',
+  paddingLeft: '40px',
 });
 
 export const StepContent = styled('div', {
