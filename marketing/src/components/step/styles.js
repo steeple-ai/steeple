@@ -3,7 +3,7 @@ import { color, layout, utility } from '../../styles';
 
 import Button from 'react-toolbox/lib/button/Button'
 
-const transition = 'all ease 300ms';
+const transition = 'all 300ms ease 250ms';
 
 export const StepContainer = styled('div', (props) => {
   const {
@@ -94,6 +94,7 @@ export const StepBody = styled('div', (props) => {
 
   return {
     ...utility.flexFlow('column', 'nowrap'),
+    flex: 1,
     flexShrink: 0,
 
     paddingTop: '2px',
@@ -107,6 +108,7 @@ export const StepBody = styled('div', (props) => {
 
 export const StepContent = styled('div', {
   ...utility.flexFlow('row', 'nowrap'),
+  flex: 1,
 });
 
 
@@ -115,5 +117,7 @@ export const ActionBar = styled('div', {
 });
 
 export const ButtonStyled = styled(Button, {
+  marginLeft: 'auto',
+
   boxShadow: 'none !important',
 });

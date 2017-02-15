@@ -19,6 +19,7 @@ class Step extends Component {
       children,
       isActive,
       isComplete,
+      isLastStep,
       onClickBack,
       onClickNext,
       stepNumber,
@@ -44,13 +45,13 @@ class Step extends Component {
           </StepContent>
           <ActionBar>
             {stepNumber !== 1 && <Button onClick={onClickBack}>back</Button>}
-            <ButtonStyled
+            {!isLastStep && <ButtonStyled
               onClick={onClickNext}
               primary
               raised
             >
               next
-            </ButtonStyled>
+            </ButtonStyled>}
           </ActionBar>
         </StepBody>
 
@@ -69,6 +70,7 @@ Step.propTypes = {
   children: PropTypes.node,
   isActive: PropTypes.bool,
   isComplete: PropTypes.bool,
+  isLastStep: PropTypes.bool,
   onClickNext: PropTypes.func,
   onClickBack: PropTypes.func,
   stepNumber: PropTypes.number,

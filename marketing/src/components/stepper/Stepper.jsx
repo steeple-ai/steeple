@@ -22,6 +22,7 @@ class Stepper extends Component {
       const {
         activeStep,
       } = this.state;
+      const totalSteps = Children.count(children);
 
       // Use Children helper to map though all the children.
       return Children.map(children, (child, key) => {
@@ -31,6 +32,7 @@ class Stepper extends Component {
         return React.cloneElement(child, {
           isActive: stepNumber === activeStep,
           isComplete: stepNumber < activeStep,
+          isLastStep: stepNumber === totalSteps,
           // Helper function to go back on step.
           onClickNext: () => this.setState(() => ({
             activeStep: stepNumber + 1,
