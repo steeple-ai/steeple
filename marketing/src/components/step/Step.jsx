@@ -16,15 +16,14 @@ class Step extends Component {
       children,
       isActive,
       isComplete,
+      onClickBack,
+      onClickNext,
       stepNumber,
       title,
     } = this.props;
 
     return (
-      <StepContainer
-        isActive={isActive}
-        isComplete={isComplete}
-      >
+      <StepContainer isActive={isActive}>
         <StepHeader>
           <StepCount
             isActive={isActive}
@@ -36,13 +35,13 @@ class Step extends Component {
           <StepTitle>{title}</StepTitle>
         </StepHeader>
 
-        <StepBody>
+        <StepBody isActive={isActive}>
           <StepContent>
             {children}
           </StepContent>
           <ActionBar>
-            <button>back</button>
-            <button>next</button>
+            {stepNumber !== 1 && <button onClick={onClickBack}>back</button>}
+            <button onClick={onClickNext}>next</button>
           </ActionBar>
         </StepBody>
 
@@ -61,6 +60,8 @@ Step.propTypes = {
   children: PropTypes.node,
   isActive: PropTypes.bool,
   isComplete: PropTypes.bool,
+  onClickNext: PropTypes.func,
+  onClickBack: PropTypes.func,
   stepNumber: PropTypes.number,
   title: PropTypes.string,
 };

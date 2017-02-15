@@ -2,13 +2,14 @@ import { styled } from 'styletron-react';
 import { color, layout, utility } from '../../styles';
 
 
+const transition = 'all ease 300ms';
+
 export const StepContainer = styled('div', (props) => {
   const {
     isActive,
-    isComplete,
   } = props;
 
-  const stateStyles = isComplete || isActive ? {
+  const stateStyles = isActive ? {
     flex: 1,
   } : {
     flex: '0 1 40px',
@@ -21,6 +22,8 @@ export const StepContainer = styled('div', (props) => {
     margin: layout.stepper.space,
 
     ...stateStyles,
+
+    transition,
   }
 });
 
@@ -77,12 +80,28 @@ export const StepTitle = styled('h1', {
 });
 
 
-export const StepBody = styled('div', {
-  ...utility.flexFlow('column', 'nowrap'),
-  flexShrink: 0,
+export const StepBody = styled('div', (props) => {
+  const {
+    isActive,
+  } = props;
 
-  paddingTop: '2px',
-  paddingLeft: '40px',
+  const stateStyles = isActive ? {
+    ...utility.visibility(isActive),
+  }: {
+    ...utility.visibility(isActive),
+  };
+
+  return {
+    ...utility.flexFlow('column', 'nowrap'),
+    flexShrink: 0,
+
+    paddingTop: '2px',
+    paddingLeft: '40px',
+
+    transition,
+
+    ...stateStyles,
+  };
 });
 
 export const StepContent = styled('div', {
