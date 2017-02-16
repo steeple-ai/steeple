@@ -8,46 +8,46 @@ const transition = 'all 300ms ease 100ms';
 export const StepContainer = styled('div', (props) => {
   const {
     isActive,
+    isFirstStep,
     isLastStep,
   } = props;
 
   const stateStyles = isActive ? {
     flexGrow: 1,
-    // flex: '1 1 48px',
   } : {
     flexGrow: 0,
-    // flex: '0 1 48px',
   };
 
-  // This is the grey line that runs under each step.
-  const notLastStepStyles = !isLastStep && {
-    '::before': {
-      content: '""',
-
-      background: color.grey88,
-
-      position: 'absolute',
-      top: '8px',
-      left: '11px',
-      bottom: '0',
-
-      width: '1px',
-    }
-  };
 
   return {
+    background: color.white,
+
     ...utility.flexFlow('column', 'nowrap'),
     flexShrink: 0,
     flexBasis: '40px',
 
     position: 'relative',
 
-    margin: layout.stepper.space,
+    padding: layout.stepper.space,
 
     transition,
 
     ...stateStyles,
-    ...notLastStepStyles,
+
+    // This is the grey line that runs under each step.
+    '::before': {
+      content: '""',
+
+      background: color.grey88,
+
+      position: 'absolute',
+      top: isFirstStep ? '16px' : '0px',
+      left: '23px',
+      bottom: isLastStep ? 'initial' : '-32px',
+
+      height: isLastStep && '16px',
+      width: '1px',
+    }
   }
 });
 

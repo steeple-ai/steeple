@@ -19,6 +19,7 @@ class Step extends Component {
       children,
       isActive,
       isComplete,
+      isFirstStep,
       isLastStep,
       onClickBack,
       onClickNext,
@@ -29,6 +30,7 @@ class Step extends Component {
     return (
       <StepContainer
         isActive={isActive}
+        isFirstStep={isFirstStep}
         isLastStep={isLastStep}
       >
         <StepHeader>
@@ -78,6 +80,7 @@ Step.propTypes = {
   children: PropTypes.node,
   isActive: PropTypes.bool,
   isComplete: PropTypes.bool,
+  isFirstStep: PropTypes.bool,
   isLastStep: PropTypes.bool,
   onClickNext: PropTypes.func,
   onClickBack: PropTypes.func,

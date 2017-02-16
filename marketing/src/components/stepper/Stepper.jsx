@@ -32,6 +32,7 @@ class Stepper extends Component {
         return React.cloneElement(child, {
           isActive: stepNumber === activeStep,
           isComplete: stepNumber < activeStep,
+          isFirstStep: stepNumber === 1,
           isLastStep: stepNumber === totalSteps,
           // Helper function to go back on step.
           onClickNext: () => this.setState(() => ({
