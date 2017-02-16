@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
-import Input from 'react-toolbox/lib/input/Input';
-
 import Toolbar from '../toolbar/Toolbar';
 import Stepper from '../stepper/Stepper';
-import Step from '../step/Step';
+import StepOne from './stepOne/StepOne';
+import StepTwo from './stepTwo/StepTwo';
+import StepThree from './stepTwo/StepTwo';
 
 import {
   GiveContainer,
+  MainWrapper,
 } from './styles';
 
 class Give extends Component {
@@ -16,40 +17,16 @@ class Give extends Component {
       <GiveContainer>
         <Toolbar title="C3 Equippers" />
 
-        <Stepper
-          stepIndex={1}
-        >
-          <Step
-            title="Who are you?"
-          >
-            <Input
-              icon="person"
-              label='Name'
-              name='name'
-              required
-              type='text'
-            />
-            <Input
-              icon="email"
-              label='Email'
-              name='email'
-              required
-              type='email'
-            />
-          </Step>
+        <MainWrapper>
 
-          <Step
-            title="Tithe & Offering"
+          <Stepper
+            stepIndex={1}
           >
-            step content
-          </Step>
-
-          <Step
-            title="Payment Information"
-          >
-            step content
-          </Step>
-        </Stepper>
+            <StepOne />
+            <StepTwo />
+            <StepThree />
+          </Stepper>
+        </MainWrapper>
       </GiveContainer>
     );
   }

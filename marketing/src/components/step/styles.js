@@ -29,7 +29,7 @@ export const StepContainer = styled('div', (props) => {
       position: 'absolute',
       top: '8px',
       left: '11px',
-      bottom: '-24px',
+      bottom: '0',
 
       width: '1px',
     }
@@ -38,7 +38,7 @@ export const StepContainer = styled('div', (props) => {
   return {
     ...utility.flexFlow('column', 'nowrap'),
     flexShrink: 0,
-    flexBasis: '48px',
+    flexBasis: '40px',
 
     position: 'relative',
 

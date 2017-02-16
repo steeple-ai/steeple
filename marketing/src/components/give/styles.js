@@ -5,3 +5,9 @@ export const GiveContainer = styled('div', {
   ...utility.flexFlow('column', 'nowrap'),
   flex: 1,
 });
+
+export const MainWrapper = styled('div', {
+  ...utility.flexFlow('column', 'nowrap'),
+  flex: 1,
+  ...utility.overflowY,
+});

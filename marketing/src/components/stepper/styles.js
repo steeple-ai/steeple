@@ -4,7 +4,7 @@ import { layout, utility } from '../../styles';
 export const StepperContainer = styled('div', {
   ...utility.flexFlow('column', 'nowrap'),
   flex: 1,
-  ...utility.overflowY,
+  overflow: 'hidden',
 
   padding: layout.stepper.space,
 });
