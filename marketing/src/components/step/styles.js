@@ -18,7 +18,6 @@ export const StepContainer = styled('div', (props) => {
     flexGrow: 0,
   };
 
-
   return {
     background: color.white,
 

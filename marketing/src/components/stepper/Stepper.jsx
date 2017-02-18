@@ -9,12 +9,14 @@ class Stepper extends Component {
     super(props);
 
     this.state = {
-      // Set activeStep to null and wait for componentWillMount to set
-      // it's initial state based on props.
-      activeStep: null,
+      // Set activeStep to null and wait for componentWillMount.
+      activeStep: props.stepIndex,
     };
 
-    // Helper function to pass in custom props to each step.
+    /**
+     * Helper function to pass in custom props to each step.
+     * @returns {*}
+     */
     this.renderChildren = () => {
       const {
         children,
@@ -34,11 +36,15 @@ class Stepper extends Component {
           isComplete: stepNumber < activeStep,
           isFirstStep: stepNumber === 1,
           isLastStep: stepNumber === totalSteps,
-          // Helper function to go back on step.
+          /**
+           * Helper function to go forward one step.
+           */
           onClickNext: () => this.setState(() => ({
             activeStep: stepNumber + 1,
           })),
-          // Helper function to go forward one step.
+          /**
+           * Helper function to go backwords one step.
+           */
           onClickBack: () => this.setState(() => ({
             activeStep: stepNumber - 1,
           })),
@@ -47,21 +53,6 @@ class Stepper extends Component {
       });
     }
   };
-
-  componentWillMount() {
-    const {
-      activeStep,
-    } = this.state;
-
-    // We need to check if there is an active step already in state.
-    // This would be true when Stepper gets called for the first time.
-    if (!activeStep) {
-      // Set the activeStep based on the prop that gets passed in.
-      this.setState((prevState, props) => ({
-        activeStep: props.stepIndex,
-      }));
-    }
-  }
 
   render() {
     return (
