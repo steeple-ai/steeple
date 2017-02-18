@@ -26,6 +26,10 @@ class Stepper extends Component {
       } = this.state;
       const totalSteps = Children.count(children);
 
+      if (activeStep > totalSteps) {
+        console.warn(`'stepIndex' of ${activeStep} must be less than or equal to total children, ${totalSteps}.`);
+      }
+
       // Use Children helper to map though all the children.
       return Children.map(children, (child, key) => {
         // Since stepNumber gets rendered, 0 index is a bad idea.

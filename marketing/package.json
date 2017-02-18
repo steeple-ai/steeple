@@ -10,7 +10,7 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router-dom": "next",
-    "react-toolbox": "^2.0.0",
+    "react-toolbox": "react-toolbox/react-toolbox.git#e366bedcf7b56f21b5106c5fd333904b2d6ddd9a",
     "styletron-client": "^2.5.1",
     "styletron-react": "^2.5.2"
   },
@@ -24,7 +24,8 @@
   "reactToolbox": {
     "include": [
       "BUTTON",
-      "INPUT"
+      "INPUT",
+      "SLIDER"
     ],
     "customProperties": {
       "preferred-font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",

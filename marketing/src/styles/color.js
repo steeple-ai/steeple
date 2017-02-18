@@ -30,6 +30,8 @@ export default {
   grey23: 'hsl(0, 0%, 23%)',
   grey10: 'hsl(0, 0%, 10%)',
 
+  teal500: 'hsl(174, 100%, 29%)',
+
   deepOrange500: 'hsl(14, 100%, 57%)',
 
   amber500: 'hsl(45, 100%, 51%)',

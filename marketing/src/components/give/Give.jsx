@@ -4,7 +4,7 @@ import Toolbar from '../toolbar/Toolbar';
 import Stepper from '../stepper/Stepper';
 import StepOne from './stepOne/StepOne';
 import StepTwo from './stepTwo/StepTwo';
-import StepThree from './stepTwo/StepTwo';
+import StepThree from './stepThree/StepThree';
 
 import {
   GiveContainer,
@@ -20,7 +20,7 @@ class Give extends Component {
         <MainWrapper>
 
           <Stepper
-            stepIndex={1}
+            stepIndex={2}
           >
             <StepOne />
             <StepTwo />
