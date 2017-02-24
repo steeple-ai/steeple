@@ -37,4 +37,5 @@ export default {
   amber500: 'hsl(45, 100%, 51%)',
 
   textColor: 'hsla(0, 0%, 0%, .87)',
+  inputLabelColor: 'hsla(0, 0%, 0%, .26)',
 };

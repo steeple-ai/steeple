@@ -14,15 +14,27 @@ import {
 } from './styles';
 
 class Step extends Component {
+  constructor(props) {
+    super(props);
+
+    this.onClickNext = () => {
+      const {
+        onClickNext,
+      } = props;
+
+      onClickNext();
+    }
+  }
+
   render() {
     const {
+      canChangeStep,
       children,
       isActive,
       isComplete,
       isFirstStep,
       isLastStep,
       onClickBack,
-      onClickNext,
       stepNumber,
       title,
     } = this.props;
@@ -51,14 +63,16 @@ class Step extends Component {
           <ActionBar>
             {stepNumber !== 1 && <Button onClick={onClickBack}>back</Button>}
             {!isLastStep ? <ButtonStyled
-              onClick={onClickNext}
+              onClick={this.onClickNext}
               primary
               raised
+              disabled={!canChangeStep}
             >
               next
             </ButtonStyled> : <ButtonStyled
               primary
               raised
+              disabled={!canChangeStep}
             >
               finish
             </ButtonStyled>}
@@ -77,13 +91,15 @@ Step.defaultProps = {
 
 
 Step.propTypes = {
+  canChangeStep: PropTypes.bool,
   children: PropTypes.node,
   isActive: PropTypes.bool,
   isComplete: PropTypes.bool,
   isFirstStep: PropTypes.bool,
   isLastStep: PropTypes.bool,
-  onClickNext: PropTypes.func,
+  isOptional: PropTypes.bool,
   onClickBack: PropTypes.func,
+  onClickNext: PropTypes.func,
   stepNumber: PropTypes.number,
   title: PropTypes.string,
 };

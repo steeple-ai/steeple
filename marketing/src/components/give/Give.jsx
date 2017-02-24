@@ -20,11 +20,11 @@ class Give extends Component {
         <MainWrapper>
 
           <Stepper
-            stepIndex={2}
+            stepIndex={1}
           >
-            <StepOne />
-            <StepTwo />
-            <StepThree />
+            <StepOne isRequired />
+            <StepTwo isRequired />
+            <StepThree isRequired />
           </Stepper>
         </MainWrapper>
       </GiveContainer>

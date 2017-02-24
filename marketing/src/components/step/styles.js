@@ -52,7 +52,6 @@ export const StepContainer = styled('div', (props) => {
 
 export const StepHeader = styled('div', {
   ...utility.flexFlow('row', 'nowrap'),
-  alignItems: 'center',
   flexShrink: 0,
 
   position: 'relative', // Need pos:r so that it renders above the line.
@@ -97,17 +96,18 @@ export const StepCount = styled('span', (props) => {
   }
 });
 
-const stepTitleLeftSpace = 16 - stepCountBorderWidth;
+const stepTitleLeftSpace = 12 - stepCountBorderWidth;
 
 export const StepTitle = styled('h1', {
   fontSize: '14px',
   color: color.textColor,
 
+  marginTop: '10px',
   marginLeft: `${stepTitleLeftSpace}px`,
 });
 
 
-export const StepBody = styled('div', (props) => {
+export const StepBody = styled('form', (props) => {
   const {
     isActive,
   } = props;
@@ -123,7 +123,7 @@ export const StepBody = styled('div', (props) => {
     flexShrink: 0,
 
     paddingTop: '2px',
-    paddingLeft: '40px',
+    paddingLeft: '36px',
 
     transition,
 
@@ -146,4 +146,6 @@ export const ButtonStyled = styled(Button, {
   marginLeft: 'auto',
 
   boxShadow: 'none !important',
+
+  minWidth: '64px !important',
 });

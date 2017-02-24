@@ -7,6 +7,7 @@
     "react-toolbox-themr": "^1.0.2"
   },
   "dependencies": {
+    "lodash": "^4.17.4",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router-dom": "next",
@@ -34,7 +35,8 @@
       "color-accent": "var(--palette-pink-a200)",
       "color-accent-dark": "var(--palette-pink-700)",
       "color-primary-contrast": "var(--color-dark-contrast)",
-      "color-accent-contrast": "var(--color-dark-contrast)"
+      "color-accent-contrast": "var(--color-dark-contrast)",
+      "slider-snap-color": "var(--palette-amber-500)"
     },
     "output": "public/react-toolbox"
   },

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import {
-  LogoContainer
+  LogoContainer,
 } from './styles';
 
 class Logo extends Component {

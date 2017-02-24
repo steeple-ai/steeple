@@ -5,12 +5,16 @@ import {
 } from './styles';
 
 class Stepper extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
       // Set activeStep to null and wait for componentWillMount.
       activeStep: props.stepIndex,
+      0: false,
+      1: false,
+      2: false,
+      // ...Children.map(props.children, (child) => !child.props.isRequired),
     };
 
     /**
@@ -20,7 +24,7 @@ class Stepper extends Component {
     this.renderChildren = () => {
       const {
         children,
-      } = this.props;
+      } = props;
       const {
         activeStep,
       } = this.state;
@@ -35,7 +39,11 @@ class Stepper extends Component {
         // Since stepNumber gets rendered, 0 index is a bad idea.
         const stepNumber = key + 1;
 
+        // console.log(key, this.state[key]);
+
+
         return React.cloneElement(child, {
+          canChangeStep: this.state[key],
           isActive: stepNumber === activeStep,
           isComplete: stepNumber < activeStep,
           isFirstStep: stepNumber === 1,
@@ -53,6 +61,13 @@ class Stepper extends Component {
             activeStep: stepNumber - 1,
           })),
           stepNumber,
+          toggleCanChangeStep: (canMoveToNextStep) => {
+            if (canMoveToNextStep !== this.state[key]) {
+              this.setState({
+                [key]: canMoveToNextStep,
+              });
+            }
+          },
         });
       });
     }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import forEach from 'lodash/forEach';
 import Input from 'react-toolbox/lib/input/Input';
 
 import Step from '../../step/Step';
@@ -22,6 +23,27 @@ class StepOne extends Component {
     this.handleChange = (name, value) => this.setState(() => ({
       [name]: value,
     }));
+
+    console.log(this.props);
+
+  }
+
+
+  componentWillUpdate() {
+    const {
+      isRequired,
+      toggleCanChangeStep,
+    } = this.props;
+
+    if (isRequired) {
+      let canMoveToNextStep = true;
+
+      forEach(this.state, (value) => {
+        canMoveToNextStep = !!value;
+      });
+
+      toggleCanChangeStep(canMoveToNextStep);
+    }
   }
 
   render() {

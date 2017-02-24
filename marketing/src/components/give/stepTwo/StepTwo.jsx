@@ -5,6 +5,7 @@ import Slider from 'react-toolbox/lib/slider/Slider';
 
 import { FormHeader } from '../../typography';
 import Step from '../../step/Step';
+import PercentInput from '../../percentInput/PercentInput';
 
 class StepTwo extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class StepTwo extends Component {
     this.state = {
       offering: '',
       paycheck: '',
+      tithePercent: 8,
     };
 
     /**
@@ -24,18 +26,13 @@ class StepTwo extends Component {
     this.handleChange = (name, value) => this.setState(() => ({
       [name]: value,
     }));
-
-    this.sliderHandleChange = (slider, value) => {
-      const newState = {};
-      newState[slider] = value;
-      this.setState(newState);
-    };
   }
 
   render() {
     const {
       offering,
       paycheck,
+      tithePercent,
     } = this.state;
 
     return <Step
@@ -52,16 +49,17 @@ class StepTwo extends Component {
         value={paycheck}
       />
 
-      <Slider
-        editable
-        max={10}
-        min={0}
-        onChange={this.sliderHandleChange.bind(this, 'slider3')}
-        pinned
-        snaps
-        step={1}
-        value={this.state.slider3}
-      />
+      <PercentInput label='Tithe Percent'>
+        <Slider
+          max={12}
+          min={4}
+          onChange={(value) => this.handleChange('tithePercent', value)}
+          pinned
+          snaps
+          step={1}
+          value={tithePercent}
+        />
+      </PercentInput>
 
       <FormHeader>Offering</FormHeader>
       <Input
@@ -69,7 +67,7 @@ class StepTwo extends Component {
         label='Offering Amount'
         name='offering'
         onChange={(value) => this.handleChange('offering', value)}
-        type='offering'
+        type='text'
         value={offering}
       />
     </Step>;
