@@ -5,10 +5,12 @@ import Button from 'react-toolbox/lib/button/Button'
 import {
   ActionBar,
   ButtonStyled,
+  CheckStyled,
   StepBody,
   StepContainer,
   StepContent,
   StepCount,
+  StepCountNumber,
   StepHeader,
   StepTitle,
 } from './styles';
@@ -50,7 +52,17 @@ class Step extends Component {
             isActive={isActive}
             isComplete={isComplete}
           >
-            {stepNumber}
+            <CheckStyled
+              isActive={isActive}
+              isComplete={isComplete}
+            />
+
+            <StepCountNumber
+              isActive={isActive}
+              isComplete={isComplete}
+            >
+              {stepNumber}
+            </StepCountNumber>
           </StepCount>
 
           <StepTitle>{title}</StepTitle>

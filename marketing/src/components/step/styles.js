@@ -2,6 +2,7 @@ import { styled } from 'styletron-react';
 import { color, layout, utility } from '../../styles';
 
 import Button from 'react-toolbox/lib/button/Button'
+import Check from '../icons/Check';
 
 const transition = 'all 300ms ease 100ms';
 
@@ -60,7 +61,7 @@ export const StepHeader = styled('div', {
 const stepCountBorderWidth = 8;
 const stepCountSize = '24px';
 
-export const StepCount = styled('span', (props) => {
+export const StepCount = styled('div', (props) => {
   const {
     isActive,
     isComplete,
@@ -68,19 +69,15 @@ export const StepCount = styled('span', (props) => {
 
   const stateStyles = isComplete || isActive ? {
     background: color.amber500,
-    color: color.textColor,
   } : {
     background: color.grey92,
-    color: color.white,
   };
 
 
   return {
-    fontSize: '13px',
+    display: 'block',
 
-    ...utility.flexFlow('row', 'nowrap'),
-    justifyContent: 'center',
-    alignItems: 'center',
+    position: 'relative',
 
     marginLeft: `-${stepCountBorderWidth}px`,
 
@@ -90,10 +87,62 @@ export const StepCount = styled('span', (props) => {
     height: stepCountSize,
     width: stepCountSize,
 
-    transition,
+    transition: 'all 4000ms ease',
 
     ...stateStyles,
   }
+});
+
+export const StepCountNumber = styled('span', (props) => {
+  const {
+    isActive,
+    isComplete,
+  } = props;
+  const stateStyles = isComplete || isActive ? {
+    color: color.textColor,
+  } : {
+    color: color.white,
+  };
+
+  return {
+    display: 'block',
+
+    fontSize: '13px',
+
+    ...utility.visibility(!isComplete),
+
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+
+    transform: 'translate3d(-50%, -50%, 0)',
+
+    transition,
+    ...stateStyles,
+  }
+});
+
+
+export const CheckStyled = styled(Check, (props) => {
+  const {
+    isComplete,
+  } = props;
+  const checkSize = '16px';
+
+  return {
+    ...utility.visibility(isComplete),
+
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+
+    height: checkSize,
+    width: checkSize,
+
+    transform: 'translate3d(-50%, -50%, 0)',
+
+    transition,
+  };
 });
 
 const stepTitleLeftSpace = 12 - stepCountBorderWidth;

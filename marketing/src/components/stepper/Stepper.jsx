@@ -63,9 +63,9 @@ class Stepper extends Component {
           stepNumber,
           toggleCanChangeStep: (canMoveToNextStep) => {
             if (canMoveToNextStep !== this.state[key]) {
-              this.setState({
+              this.setState(() => ({
                 [key]: canMoveToNextStep,
-              });
+              }));
             }
           },
         });
