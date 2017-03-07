@@ -5,6 +5,11 @@ const overflow = {
 export default {
   flexFlow: (direction, wrap) => ({ display: 'flex', flexFlow: `${direction} ${wrap}` }),
 
+  inputTransition: {
+    transition: 'all .3s cubic-bezier(.4, 0, .2, 1)',
+
+  },
+
   overflowY: {
     overflowY: 'auto',
     ...overflow,

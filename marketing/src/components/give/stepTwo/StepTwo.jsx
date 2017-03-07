@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Input from 'react-toolbox/lib/input/Input';
-import Slider from 'react-toolbox/lib/slider/Slider';
 
 import { FormHeader } from '../../typography';
 import Step from '../../step/Step';
@@ -49,17 +48,11 @@ class StepTwo extends Component {
         value={paycheck}
       />
 
-      <PercentInput label='Tithe Percent'>
-        <Slider
-          max={12}
-          min={4}
-          onChange={(value) => this.handleChange('tithePercent', value)}
-          pinned
-          snaps
-          step={1}
-          value={tithePercent}
-        />
-      </PercentInput>
+      <PercentInput
+        label='Tithe Percent'
+        onChange={(value) => this.handleChange('tithePercent', value)}
+        value={tithePercent}
+      />
 
       <FormHeader>Offering</FormHeader>
       <Input

@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
+import Slider from 'react-toolbox/lib/slider/Slider';
+
 import {
   InputLabel,
   PercentStyled,
@@ -8,30 +10,67 @@ import {
 } from './styles';
 
 class PercentInput extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isDragged: false,
+    };
+
+    this.onDragStart = () => {
+      this.setState(() => ({ isDragged: true }));
+    };
+
+    this.onDragStop = () => {
+      this.setState(() => ({ isDragged: false }));
+    };
+  }
+
   render() {
     const {
-      children,
       label,
+      onChange,
+      value,
     } = this.props;
+    const {
+      isDragged,
+    } = this.state;
 
     return (
       <TithePercentContainer>
-        <PercentStyled />
+        <PercentStyled isActive={isDragged} />
 
         <Row>
-          <InputLabel>
+          <InputLabel isActive={isDragged}>
             {label}
           </InputLabel>
-          {children}
+
+          <Slider
+            max={12}
+            min={4}
+            onChange={onChange}
+            onDragStart={this.onDragStart}
+            onDragStop={this.onDragStop}
+            pinned
+            ref={(slider) => this.slider = slider}
+            snaps
+            step={1}
+            value={value}
+          />
         </Row>
       </TithePercentContainer>
     );
   }
 }
 
+PercentInput.defaultProps = {
+  onChange: () => {},
+};
+
 PercentInput.propTypes = {
-  children: PropTypes.node,
   label: PropTypes.node,
+  onChange: PropTypes.func,
+  value: PropTypes.number,
 };
 
 export default PercentInput;

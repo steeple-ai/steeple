@@ -87,8 +87,7 @@ export const StepCount = styled('div', (props) => {
     height: stepCountSize,
     width: stepCountSize,
 
-    transition: 'all 4000ms ease',
-
+    transition,
     ...stateStyles,
   }
 });

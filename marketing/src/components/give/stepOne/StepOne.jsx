@@ -23,9 +23,6 @@ class StepOne extends Component {
     this.handleChange = (name, value) => this.setState(() => ({
       [name]: value,
     }));
-
-    console.log(this.props);
-
   }
 
 
