@@ -4,9 +4,11 @@ import Slider from 'react-toolbox/lib/slider/Slider';
 
 import {
   InputLabel,
+  PercentContainer,
   PercentStyled,
   Row,
-  TithePercentContainer,
+  Value,
+  ValueRow,
 } from './styles';
 
 class PercentInput extends Component {
@@ -24,11 +26,34 @@ class PercentInput extends Component {
     this.onDragStop = () => {
       this.setState(() => ({ isDragged: false }));
     };
+
+    this.renderValues = () => {
+      const {
+        max,
+        min,
+        value,
+      } = this.props;
+      const values = [];
+
+      for (let i = min; i <= max; i++) {
+        values.push(<Value
+          left={(100 / (max - min)) * (i - min)}
+          key={i}
+          isActive={value === i}
+        >
+          {i}%
+        </Value>)
+      }
+
+      return values;
+    }
   }
 
   render() {
     const {
       label,
+      max,
+      min,
       onChange,
       value,
     } = this.props;
@@ -37,7 +62,7 @@ class PercentInput extends Component {
     } = this.state;
 
     return (
-      <TithePercentContainer>
+      <PercentContainer>
         <PercentStyled isActive={isDragged} />
 
         <Row>
@@ -46,8 +71,8 @@ class PercentInput extends Component {
           </InputLabel>
 
           <Slider
-            max={12}
-            min={4}
+            max={max}
+            min={min}
             onChange={onChange}
             onDragStart={this.onDragStart}
             onDragStop={this.onDragStop}
@@ -57,8 +82,12 @@ class PercentInput extends Component {
             step={1}
             value={value}
           />
+
+          <ValueRow>
+            {this.renderValues()}
+          </ValueRow>
         </Row>
-      </TithePercentContainer>
+      </PercentContainer>
     );
   }
 }
@@ -69,6 +98,8 @@ PercentInput.defaultProps = {
 
 PercentInput.propTypes = {
   label: PropTypes.node,
+  max: PropTypes.number,
+  min: PropTypes.number,
   onChange: PropTypes.func,
   value: PropTypes.number,
 };

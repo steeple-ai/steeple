@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 
 import Input from 'react-toolbox/lib/input/Input';
 
-import { FormHeader } from '../../typography';
+import {
+  FormHeader,
+  GreyText,
+  TotalAmount,
+} from '../../typography';
 import Step from '../../step/Step';
 import PercentInput from '../../percentInput/PercentInput';
 
@@ -14,7 +18,8 @@ class StepTwo extends Component {
     this.state = {
       offering: '',
       paycheck: '',
-      tithePercent: 8,
+      tithePercent: 10,
+      total: '0.00'
     };
 
     /**
@@ -32,13 +37,14 @@ class StepTwo extends Component {
       offering,
       paycheck,
       tithePercent,
+      total,
     } = this.state;
 
     return <Step
       title="Tithe & Offering"
       { ...this.props }
     >
-      <FormHeader>Tithe</FormHeader>
+      <FormHeader>Tithe <GreyText>(optional)</GreyText></FormHeader>
       <Input
         icon='receipt'
         label='Paycheck'
@@ -47,9 +53,10 @@ class StepTwo extends Component {
         type='text'
         value={paycheck}
       />
-
       <PercentInput
         label='Tithe Percent'
+        max={12}
+        min={8}
         onChange={(value) => this.handleChange('tithePercent', value)}
         value={tithePercent}
       />
@@ -63,6 +70,12 @@ class StepTwo extends Component {
         type='text'
         value={offering}
       />
+
+      <FormHeader>Total</FormHeader>
+      <TotalAmount>
+        ${total}
+      </TotalAmount>
+
     </Step>;
   }
 }

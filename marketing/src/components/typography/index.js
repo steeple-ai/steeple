@@ -9,3 +9,16 @@ export const FormHeader = styled('h1', {
   marginTop: '2px',
   marginBottom: '1px',
 });
+
+export const TotalAmount = styled('h1', {
+  fontFamily: '\'Space Mono\', monospace',
+  fontSize: '32px',
+  color: color.textColor,
+
+  marginTop: '8px',
+  marginBottom: '8px',
+});
+
+export const GreyText = styled('span', {
+  color: color.inputLabelColor,
+});
