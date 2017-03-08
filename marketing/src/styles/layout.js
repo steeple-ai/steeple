@@ -6,6 +6,6 @@ export default {
     height: '56px',
   },
   stepper: {
-    space: `${24 / 2}px`,
+    space: 16 / 2,
   }
 };

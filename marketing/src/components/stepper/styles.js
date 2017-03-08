@@ -1,10 +1,67 @@
 import { styled } from 'styletron-react';
-import { layout, utility } from '../../styles';
+import { color, layout, utility } from '../../styles';
+
+import Button from 'react-toolbox/lib/button/Button'
+
 
 export const StepperContainer = styled('div', {
   ...utility.flexFlow('column', 'nowrap'),
   flex: 1,
   overflow: 'hidden',
+});
 
-  padding: layout.stepper.space,
+export const StepperTitle = styled('div', {
+  background: color.grey96,
+
+  flexShrink: 0,
+
+  boxSizing: 'border-box',
+
+  height: '52px',
+
+  paddingTop: '15px',
+  paddingRight: `${layout.stepper.space * 2}px`,
+  paddingLeft: `${layout.stepper.space * 2}px`,
+});
+
+export const StepperBody = styled('div', {
+  flex: 1,
+  ...utility.overflowY,
+
+  position: 'relative',
+});
+
+export const StepperFooter = styled('div', {
+  background: color.grey96,
+
+  ...utility.flexFlow('row', 'nowrap'),
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  flexShrink: 0,
+
+  height: '52px',
+
+  padding: '0 8px',
+});
+
+const iconSidePadding = '2px';
+
+export const ButtonLeftStyled = styled(Button, {
+  display: 'flex !important', // Have to do this to override react-toolbox.
+
+  minWidth: 'auto !important',
+
+  paddingRight: iconSidePadding,
+  paddingLeft: '8px !important',
+});
+
+export const ButtonRightStyled = styled(Button, {
+  display: 'flex !important', // Have to do this to override react-toolbox.
+
+  marginLeft: 'auto',
+
+  minWidth: 'auto !important',
+
+  paddingRight: '8px !important',
+  paddingLeft: iconSidePadding,
 });

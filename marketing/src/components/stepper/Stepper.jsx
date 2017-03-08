@@ -1,7 +1,12 @@
 import React, { Children, Component, PropTypes } from 'react';
 
 import {
+  ButtonLeftStyled,
+  ButtonRightStyled,
+  StepperBody,
+  StepperFooter,
   StepperContainer,
+  StepperTitle,
 } from './styles';
 
 class Stepper extends Component {
@@ -11,11 +16,22 @@ class Stepper extends Component {
     this.state = {
       // Set activeStep to null and wait for componentWillMount.
       activeStep: props.stepIndex,
-      0: false,
-      1: false,
-      2: false,
-      // ...Children.map(props.children, (child) => !child.props.isRequired),
+      ...Children.map(props.children, (child) => !child.props.isRequired),
     };
+
+    /**
+     * Helper function to go forward one step.
+     */
+    this.onClickNext = () => this.setState((prevState) => ({
+      activeStep: prevState.activeStep + 1,
+    }));
+
+      /**
+       * Helper function to go backwords one step.
+       */
+    this.onClickBack = () => this.setState((prevState) => ({
+      activeStep: prevState.activeStep - 1,
+    }));
 
     /**
      * Helper function to pass in custom props to each step.
@@ -48,18 +64,6 @@ class Stepper extends Component {
           isComplete: stepNumber < activeStep,
           isFirstStep: stepNumber === 1,
           isLastStep: stepNumber === totalSteps,
-          /**
-           * Helper function to go forward one step.
-           */
-          onClickNext: () => this.setState(() => ({
-            activeStep: stepNumber + 1,
-          })),
-          /**
-           * Helper function to go backwords one step.
-           */
-          onClickBack: () => this.setState(() => ({
-            activeStep: stepNumber - 1,
-          })),
           stepNumber,
           toggleCanChangeStep: (canMoveToNextStep) => {
             if (canMoveToNextStep !== this.state[key]) {
@@ -74,9 +78,31 @@ class Stepper extends Component {
   };
 
   render() {
+    const {
+      activeStep,
+    } = this.state;
+
     return (
       <StepperContainer>
-        {this.renderChildren()}
+        <StepperTitle>
+          Who are you?
+        </StepperTitle>
+
+        <StepperBody>
+          {this.renderChildren()}
+        </StepperBody>
+
+        <StepperFooter>
+          { activeStep !== 1 && <ButtonLeftStyled onClick={this.onClickBack}>
+            <i className="material-icons">navigate_before</i>
+            Back
+          </ButtonLeftStyled> }
+
+          <ButtonRightStyled onClick={this.onClickNext}>
+            Next
+            <i className="material-icons">navigate_next</i>
+          </ButtonRightStyled>
+        </StepperFooter>
       </StepperContainer>
     );
   }

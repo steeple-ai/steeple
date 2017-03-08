@@ -1,18 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
-import Button from 'react-toolbox/lib/button/Button'
-
 import {
-  ActionBar,
-  ButtonStyled,
-  CheckStyled,
-  StepBody,
   StepContainer,
-  StepContent,
-  StepCount,
-  StepCountNumber,
-  StepHeader,
-  StepTitle,
 } from './styles';
 
 class Step extends Component {
@@ -30,15 +19,10 @@ class Step extends Component {
 
   render() {
     const {
-      canChangeStep,
       children,
       isActive,
-      isComplete,
       isFirstStep,
       isLastStep,
-      onClickBack,
-      stepNumber,
-      title,
     } = this.props;
 
     return (
@@ -47,50 +31,7 @@ class Step extends Component {
         isFirstStep={isFirstStep}
         isLastStep={isLastStep}
       >
-        <StepHeader>
-          <StepCount
-            isActive={isActive}
-            isComplete={isComplete}
-          >
-            <CheckStyled
-              isActive={isActive}
-              isComplete={isComplete}
-            />
-
-            <StepCountNumber
-              isActive={isActive}
-              isComplete={isComplete}
-            >
-              {stepNumber}
-            </StepCountNumber>
-          </StepCount>
-
-          <StepTitle>{title}</StepTitle>
-        </StepHeader>
-
-        <StepBody isActive={isActive}>
-          <StepContent>
-            {children}
-          </StepContent>
-          <ActionBar>
-            {stepNumber !== 1 && <Button onClick={onClickBack}>back</Button>}
-            {!isLastStep ? <ButtonStyled
-              onClick={this.onClickNext}
-              primary
-              raised
-              disabled={!canChangeStep}
-            >
-              next
-            </ButtonStyled> : <ButtonStyled
-              primary
-              raised
-              disabled={!canChangeStep}
-            >
-              finish
-            </ButtonStyled>}
-          </ActionBar>
-        </StepBody>
-
+        {children}
       </StepContainer>
     );
   }
