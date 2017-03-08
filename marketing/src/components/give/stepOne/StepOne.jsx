@@ -25,7 +25,6 @@ class StepOne extends Component {
     }));
   }
 
-
   componentWillUpdate() {
     const {
       isRequired,

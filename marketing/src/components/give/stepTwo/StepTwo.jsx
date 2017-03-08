@@ -40,6 +40,17 @@ class StepTwo extends Component {
     }
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    const {
+      isRequired,
+      toggleCanChangeStep,
+    } = this.props;
+
+    if (isRequired && !!Number(nextState.total)) {
+      toggleCanChangeStep(!!Number(nextState.total));
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.paycheck !== this.state.paycheck || prevState.tithePercent !== this.state.tithePercent || prevState.offering !== this.state.offering) {
       this.setState(() => ({

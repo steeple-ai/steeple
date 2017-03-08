@@ -43,27 +43,30 @@ export const InputLabel = styled('h1', (props) => {
     isActive,
   } =  props;
   const stateStyles = isActive ? {
-    fontSize: '12px',
     color: color.amber500,
 
-    top: '-11px',
+    transform: 'translate3d(0, -26px, 0) scale(.8)',
   } : {
-    fontSize: '16px',
     color: color.inputLabelColor,
 
-    top: '15px',
+    transform: 'translate3d(0, 0, 0)',
   };
 
   return {
+    fontSize: '16px',
+    '-webkit-font-smoothing': 'antialiased',
+
     cursor: 'default',
     userSelect: 'none',
 
     position: 'absolute',
+    top: '15px',
 
     marginRight: `${rowRightMargin}px`,
     marginBottom: '2px',
     marginLeft: '16px',
 
+    transformOrigin: 'top left',
     ...utility.inputTransition,
     ...stateStyles,
   };
