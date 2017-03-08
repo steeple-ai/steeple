@@ -16,6 +16,7 @@ class Stepper extends Component {
     this.state = {
       // Set activeStep to null and wait for componentWillMount.
       activeStep: props.stepIndex,
+      totalSteps: Children.count(props.children),
       ...Children.map(props.children, (child) => !child.props.isRequired),
     };
 
@@ -43,8 +44,8 @@ class Stepper extends Component {
       } = props;
       const {
         activeStep,
+        totalSteps,
       } = this.state;
-      const totalSteps = Children.count(children);
 
       if (activeStep > totalSteps) {
         console.warn(`'stepIndex' of ${activeStep} must be less than or equal to total children, ${totalSteps}.`);
@@ -63,7 +64,6 @@ class Stepper extends Component {
           isActive: stepNumber === activeStep,
           isComplete: stepNumber < activeStep,
           isFirstStep: stepNumber === 1,
-          isLastStep: stepNumber === totalSteps,
           stepNumber,
           toggleCanChangeStep: (canMoveToNextStep) => {
             if (canMoveToNextStep !== this.state[key]) {
@@ -80,7 +80,9 @@ class Stepper extends Component {
   render() {
     const {
       activeStep,
+      totalSteps,
     } = this.state;
+    const canChangeStep = this.state[activeStep - 1];
 
     return (
       <StepperContainer>
@@ -98,10 +100,17 @@ class Stepper extends Component {
             Back
           </ButtonLeftStyled> }
 
-          <ButtonRightStyled onClick={this.onClickNext}>
-            Next
+          {activeStep !== totalSteps ? <ButtonRightStyled
+            onClick={this.onClickNext}
+            disabled={!canChangeStep}
+          >
+            next
             <i className="material-icons">navigate_next</i>
-          </ButtonRightStyled>
+          </ButtonRightStyled> : <ButtonRightStyled
+            disabled={!canChangeStep}
+          >
+            finish
+          </ButtonRightStyled>}
         </StepperFooter>
       </StepperContainer>
     );
