@@ -19,7 +19,7 @@ class StepTwo extends Component {
       offering: '',
       paycheck: '',
       tithePercent: 10,
-      total: '0.00'
+      total: (0).toFixed(2)
     };
 
     /**
@@ -30,6 +30,22 @@ class StepTwo extends Component {
     this.handleChange = (name, value) => this.setState(() => ({
       [name]: value,
     }));
+
+    this.renderTotal = () => {
+      const {
+        total,
+      } = this.state;
+
+      return total;
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.paycheck !== this.state.paycheck || prevState.tithePercent !== this.state.tithePercent || prevState.offering !== this.state.offering) {
+      this.setState(() => ({
+        total: (((Number(this.state.tithePercent) / 100) * Number(this.state.paycheck)) + Number(this.state.offering)).toFixed(2)
+      }))
+    }
   }
 
   render() {
@@ -37,7 +53,6 @@ class StepTwo extends Component {
       offering,
       paycheck,
       tithePercent,
-      total,
     } = this.state;
 
     return <Step
@@ -47,10 +62,10 @@ class StepTwo extends Component {
       <FormHeader>Tithe <GreyText>(optional)</GreyText></FormHeader>
       <Input
         icon='receipt'
-        label='Paycheck'
+        label='Last Paycheck'
         name='paycheck'
         onChange={(value) => this.handleChange('paycheck', value)}
-        type='text'
+        type='number'
         value={paycheck}
       />
       <PercentInput
@@ -67,13 +82,13 @@ class StepTwo extends Component {
         label='Offering Amount'
         name='offering'
         onChange={(value) => this.handleChange('offering', value)}
-        type='text'
+        type='number'
         value={offering}
       />
 
       <FormHeader>Total</FormHeader>
       <TotalAmount>
-        ${total}
+        ${this.renderTotal()}
       </TotalAmount>
 
     </Step>;
