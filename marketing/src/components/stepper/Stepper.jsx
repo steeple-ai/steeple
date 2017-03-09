@@ -36,53 +36,54 @@ class Stepper extends Component {
     this.onClickBack = () => this.setState((prevState) => ({
       activeStep: prevState.activeStep - 1,
     }));
-
-    /**
-     * Helper function to pass in custom props to each step.
-     * @returns {*}
-     */
-    this.renderChildren = () => {
-      const {
-        children,
-      } = props;
-      const {
-        activeStep,
-        totalSteps,
-      } = this.state;
-
-      if (activeStep > totalSteps) {
-        console.warn(`'stepIndex' of ${activeStep} must be less than or equal to total children, ${totalSteps}.`);
-      }
-
-      // Use Children helper to map though all the children.
-      return Children.map(children, (child, key) => {
-        // Since stepNumber gets rendered, 0 index is a bad idea.
-        const stepNumber = key + 1;
-        const canChangeStep = this.state[key].canChangeStep;
-
-        return React.cloneElement(child, {
-          canChangeStep,
-          isActive: stepNumber === activeStep,
-          isComplete: stepNumber < activeStep,
-          isFirstStep: stepNumber === 1,
-          stepNumber,
-          toggleCanChangeStep: (canMoveToNextStep) => {
-            // This is a hack. Changes to state can cause this to run over and over again with huge memory leak. Be
-            // careful. 
-
-            if (canMoveToNextStep !== canChangeStep) {
-              this.setState(() => ({
-                [key]: {
-                  canChangeStep: canMoveToNextStep,
-                  title: child.props.title,
-                },
-              }));
-            }
-          },
-        });
-      });
-    }
   };
+
+  /**
+   * Helper function to pass in custom props to each step.
+   * @returns {*}
+   */
+  renderChildren() {
+    const {
+      children,
+    } = this.props;
+    const {
+      activeStep,
+      totalSteps,
+    } = this.state;
+
+    if (activeStep > totalSteps) {
+      console.warn(`'stepIndex' of ${activeStep} must be less than or equal to total children, ${totalSteps}.`);
+    }
+
+    // Use Children helper to map though all the children.
+    return Children.map(children, (child, key) => {
+      // Since stepNumber gets rendered, 0 index is a bad idea.
+      const stepNumber = key + 1;
+      const canChangeStep = this.state[key].canChangeStep;
+
+      return React.cloneElement(child, {
+        ...child.props,
+        canChangeStep,
+        isActive: stepNumber === activeStep,
+        isComplete: stepNumber < activeStep,
+        isFirstStep: stepNumber === 1,
+        stepNumber,
+        toggleCanChangeStep: (canMoveToNextStep) => {
+          // This is a hack. Changes to state can cause this to run over and over again with huge memory leak. Be
+          // careful.
+
+          if (canMoveToNextStep !== canChangeStep) {
+            this.setState(() => ({
+              [key]: {
+                canChangeStep: canMoveToNextStep,
+                title: child.props.title,
+              },
+            }));
+          }
+        },
+      });
+    });
+  }
 
   render() {
     const {

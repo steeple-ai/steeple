@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import forEach from 'lodash/forEach';
 import Input from 'react-toolbox/lib/input/Input';
@@ -6,36 +6,19 @@ import Input from 'react-toolbox/lib/input/Input';
 import Step from '../../step/Step';
 
 class StepOne extends Component {
-  constructor(props) {
-    super(props);
-
-    // The form is controlled. We need to manage the state of the inputs in this controller.
-    this.state = {
-      name: '',
-      email: '',
-    };
-
-    /**
-     * Change the passed in value of inputs when input changes.
-     * @param name
-     * @param value
-     */
-    this.handleChange = (name, value) => this.setState(() => ({
-      [name]: value,
-    }));
-  }
-
   componentWillUpdate() {
     const {
+      email,
       isRequired,
+      name,
       toggleCanChangeStep,
     } = this.props;
 
     if (isRequired) {
       let canMoveToNextStep = true;
 
-      forEach(this.state, (value) => {
-        canMoveToNextStep = !!value;
+      forEach([name, email], (value) => {
+        canMoveToNextStep = !!value && value !== '';
       });
 
       toggleCanChangeStep(canMoveToNextStep);
@@ -45,30 +28,39 @@ class StepOne extends Component {
   render() {
     const {
       email,
+      handleChange,
       name,
-    } = this.state;
+    } = this.props;
 
-    return <Step { ...this.props }>
-      <Input
-        icon="person"
-        label='Name'
-        name='name'
-        onChange={(value) => this.handleChange('name', value)}
-        required
-        type='text'
-        value={name}
-      />
-      <Input
-        icon="email"
-        label='Email'
-        name='email'
-        onChange={(value) => this.handleChange('email', value)}
-        required
-        type='email'
-        value={email}
-      />
-    </Step>;
+    return (
+      <Step { ...this.props }>
+        <Input
+          icon="person"
+          label='Name'
+          name='name'
+          onChange={(value) => handleChange('name', value)}
+          required
+          type='text'
+          value={name}
+        />
+        <Input
+          icon="email"
+          label='Email'
+          name='email'
+          onChange={(value) => handleChange('email', value)}
+          required
+          type='email'
+          value={email}
+        />
+      </Step>
+    );
   }
 }
+
+StepOne.propTypes = {
+  email: PropTypes.string,
+  handleChange: PropTypes.func,
+  name: PropTypes.string,
+};
 
 export default StepOne;
