@@ -17,7 +17,10 @@ class Stepper extends Component {
       // Set activeStep to null and wait for componentWillMount.
       activeStep: props.stepIndex,
       totalSteps: Children.count(props.children),
-      ...Children.map(props.children, (child) => !child.props.isRequired),
+      ...Children.map(props.children, (child) => ({
+        canChangeStep: !child.props.isRequired,
+        title: child.props.title,
+      })),
     };
 
     /**
@@ -27,9 +30,9 @@ class Stepper extends Component {
       activeStep: prevState.activeStep + 1,
     }));
 
-      /**
-       * Helper function to go backwords one step.
-       */
+    /**
+     * Helper function to go backwords one step.
+     */
     this.onClickBack = () => this.setState((prevState) => ({
       activeStep: prevState.activeStep - 1,
     }));
@@ -55,20 +58,24 @@ class Stepper extends Component {
       return Children.map(children, (child, key) => {
         // Since stepNumber gets rendered, 0 index is a bad idea.
         const stepNumber = key + 1;
-
-        // console.log(key, this.state[key]);
-
+        const canChangeStep = this.state[key].canChangeStep;
 
         return React.cloneElement(child, {
-          canChangeStep: this.state[key],
+          canChangeStep,
           isActive: stepNumber === activeStep,
           isComplete: stepNumber < activeStep,
           isFirstStep: stepNumber === 1,
           stepNumber,
           toggleCanChangeStep: (canMoveToNextStep) => {
-            if (canMoveToNextStep !== this.state[key]) {
+            // This is a hack. Changes to state can cause this to run over and over again with huge memory leak. Be
+            // careful. 
+
+            if (canMoveToNextStep !== canChangeStep) {
               this.setState(() => ({
-                [key]: canMoveToNextStep,
+                [key]: {
+                  canChangeStep: canMoveToNextStep,
+                  title: child.props.title,
+                },
               }));
             }
           },
@@ -82,12 +89,14 @@ class Stepper extends Component {
       activeStep,
       totalSteps,
     } = this.state;
-    const canChangeStep = this.state[activeStep - 1];
+    const activeStepState = this.state[activeStep - 1];
+    const canChangeStep = activeStepState.canChangeStep;
+    const title = activeStepState.title;
 
     return (
       <StepperContainer>
         <StepperTitle>
-          Who are you?
+          {title}
         </StepperTitle>
 
         <StepperBody>

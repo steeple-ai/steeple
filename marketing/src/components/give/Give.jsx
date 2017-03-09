@@ -22,9 +22,18 @@ class Give extends Component {
           <Stepper
             stepIndex={1}
           >
-            <StepOne isRequired />
-            <StepTwo isRequired />
-            <StepThree isRequired />
+            <StepOne
+              isRequired
+              title="Who are you?"
+            />
+            <StepTwo
+              isRequired
+              title="Tithe & Offering"
+            />
+            <StepThree
+              isRequired
+              title="Payment Information"
+            />
           </Stepper>
         </MainWrapper>
       </GiveContainer>

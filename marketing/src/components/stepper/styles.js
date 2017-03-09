@@ -19,7 +19,7 @@ export const StepperTitle = styled('div', {
 
   height: '52px',
 
-  paddingTop: '15px',
+  paddingTop: '17px',
   paddingRight: `${layout.stepper.space * 2}px`,
   paddingLeft: `${layout.stepper.space * 2}px`,
 });

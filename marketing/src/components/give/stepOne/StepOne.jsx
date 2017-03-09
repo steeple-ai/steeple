@@ -48,10 +48,7 @@ class StepOne extends Component {
       name,
     } = this.state;
 
-    return <Step
-      title="Who are you?"
-      { ...this.props }
-    >
+    return <Step { ...this.props }>
       <Input
         icon="person"
         label='Name'

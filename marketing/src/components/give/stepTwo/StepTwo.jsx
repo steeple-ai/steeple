@@ -66,10 +66,7 @@ class StepTwo extends Component {
       tithePercent,
     } = this.state;
 
-    return <Step
-      title="Tithe & Offering"
-      { ...this.props }
-    >
+    return <Step { ...this.props } >
       <FormHeader>Tithe <GreyText>(optional)</GreyText></FormHeader>
       <Input
         icon='receipt'

@@ -30,10 +30,7 @@ class StepThree extends Component {
       name,
     } = this.state;
 
-    return <Step
-      title="Payment Information"
-      { ...this.props }
-    >
+    return <Step { ...this.props } >
       <Input
         icon="person"
         label='Name'
