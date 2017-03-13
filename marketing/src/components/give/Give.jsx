@@ -16,12 +16,16 @@ class Give extends Component {
     super(props);
 
     this.state = {
+      creditCardCvc: '',
+      creditCardExpiration: '',
+      creditCardNumber: '',
+      creditCardZip: '',
       email: '',
       name: '',
       offering: '',
       paycheck: '',
       tithePercent: 10,
-      total: (0).toFixed(2)
+      total: (0).toFixed(2),
     };
 
     /**
@@ -44,6 +48,10 @@ class Give extends Component {
 
   render() {
     const {
+      creditCardCvc,
+      creditCardExpiration,
+      creditCardNumber,
+      creditCardZip,
       email,
       name,
       offering,
@@ -59,7 +67,7 @@ class Give extends Component {
         <MainWrapper>
 
           <Stepper
-            stepIndex={1}
+            stepIndex={3}
           >
             <StepOne
               email={email}
@@ -79,8 +87,14 @@ class Give extends Component {
             />
             <StepThree
               isRequired
+              name={name}
               title="Payment Information"
               handleChange={this.handleChange}
+              total={total}
+              creditCardCvc={creditCardCvc}
+              creditCardExpiration={creditCardExpiration}
+              creditCardNumber={creditCardNumber}
+              creditCardZip={creditCardZip}
             />
           </Stepper>
         </MainWrapper>

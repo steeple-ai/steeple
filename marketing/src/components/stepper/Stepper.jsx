@@ -132,4 +132,8 @@ Stepper.propTypes = {
   stepIndex: PropTypes.number,
 };
 
+Stepper.defaultProps = {
+  stepIndex: 1,
+};
+
 export default Stepper;
