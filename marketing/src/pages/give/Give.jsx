@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 
 import Stepper from '../../components/stepper/Stepper';
 import StepOne from './stepOne/StepOne';
+import StepOneTitle from './stepOne/StepOneTitle';
 import StepTwo from './stepTwo/StepTwo';
+import StepTwoTitle from './stepTwo/StepTwoTitle';
 import StepThree from './stepThree/StepThree';
+import StepThreeTitle from './stepThree/StepThreeTitle';
 
 import {
   GiveContainer,
@@ -65,14 +68,14 @@ class Give extends Component {
         <MainWrapper>
 
           <Stepper
-            stepIndex={1}
+            stepIndex={3}
           >
             <StepOne
               email={email}
               handleChange={this.handleChange}
               isRequired
               name={name}
-              title="Who are you?"
+              title={<StepOneTitle />}
             />
             <StepTwo
               handleChange={this.handleChange}
@@ -80,13 +83,13 @@ class Give extends Component {
               offering={offering}
               paycheck={paycheck}
               tithePercent={tithePercent}
-              title="Tithe & Offering"
+              title={<StepTwoTitle />}
               total={total}
             />
             <StepThree
               isRequired
               name={name}
-              title="Payment Information"
+              title={<StepThreeTitle />}
               handleChange={this.handleChange}
               total={total}
               creditCardCvc={creditCardCvc}

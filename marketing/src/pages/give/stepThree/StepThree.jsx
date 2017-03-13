@@ -4,12 +4,12 @@ import {
   FormHeader,
   TotalAmount,
 } from '../../../components/typography';
-import Step from '../../../components/step/Step';
 
 import {
-  InputStyled,
   InputRow,
   InputSmallStyled,
+  InputStyled,
+  StepStyled,
 } from './styles';
 
 class StepThree extends Component {
@@ -25,7 +25,7 @@ class StepThree extends Component {
     } = this.props;
 
     return (
-      <Step { ...this.props } >
+      <StepStyled { ...this.props } >
         <FormHeader>Total</FormHeader>
         <TotalAmount>
           ${total}
@@ -80,7 +80,7 @@ class StepThree extends Component {
           />
         </InputRow>
 
-      </Step>
+      </StepStyled>
     );
   }
 }

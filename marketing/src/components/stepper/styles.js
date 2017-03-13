@@ -1,5 +1,5 @@
 import { styled } from 'styletron-react';
-import { color, layout, utility } from '../../styles';
+import { utility } from '../../styles';
 
 import Button from 'react-toolbox/lib/button/Button'
 
@@ -18,8 +18,6 @@ export const StepperBody = styled('div', {
 });
 
 export const StepperFooter = styled('div', {
-  background: color.grey96,
-
   ...utility.flexFlow('row', 'nowrap'),
   justifyContent: 'space-between',
   alignItems: 'center',

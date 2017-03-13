@@ -7,8 +7,11 @@ import {
   GreyText,
   TotalAmount,
 } from '../../../components/typography';
-import Step from '../../../components/step/Step';
 import PercentInput from '../../../components/percentInput/PercentInput';
+
+import {
+  StepStyled,
+} from './styles';
 
 class StepTwo extends Component {
   componentWillUpdate(nextProps) {
@@ -32,7 +35,7 @@ class StepTwo extends Component {
     } = this.props;
 
     return (
-      <Step { ...this.props }>
+      <StepStyled { ...this.props }>
         <FormHeader>Tithe <GreyText>(optional)</GreyText></FormHeader>
         <Input
           icon='receipt'
@@ -64,7 +67,7 @@ class StepTwo extends Component {
         <TotalAmount>
           ${total}
         </TotalAmount>
-      </Step>
+      </StepStyled>
     );
   }
 }

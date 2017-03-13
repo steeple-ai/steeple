@@ -1,5 +1,5 @@
 import { styled } from 'styletron-react';
-import { color, layout, utility } from '../../styles';
+import { layout, utility } from '../../styles';
 
 export const StepContainer = styled('div', (props) => {
   const {
@@ -12,8 +12,6 @@ export const StepContainer = styled('div', (props) => {
   };
 
   return {
-    background: color.white,
-
     ...utility.flexFlow('column', 'nowrap'),
 
     position: 'absolute',
@@ -25,4 +23,8 @@ export const StepContainer = styled('div', (props) => {
 
     ...stateStyles,
   }
+});
+
+export const StepTitle = styled('div', {
+
 });

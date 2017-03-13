@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 
 import {
   StepContainer,
+  StepTitle,
 } from './styles';
 
 class Step extends Component {
@@ -20,17 +21,23 @@ class Step extends Component {
   render() {
     const {
       children,
+      className,
       isActive,
       isFirstStep,
       isLastStep,
+      title,
     } = this.props;
 
     return (
       <StepContainer
+        className={className}
         isActive={isActive}
         isFirstStep={isFirstStep}
         isLastStep={isLastStep}
       >
+        <StepTitle>
+          {title}
+        </StepTitle>
         {children}
       </StepContainer>
     );
@@ -46,6 +53,7 @@ Step.defaultProps = {
 Step.propTypes = {
   canChangeStep: PropTypes.bool,
   children: PropTypes.node,
+  className: PropTypes.string,
   isActive: PropTypes.bool,
   isComplete: PropTypes.bool,
   isFirstStep: PropTypes.bool,
@@ -54,7 +62,7 @@ Step.propTypes = {
   onClickBack: PropTypes.func,
   onClickNext: PropTypes.func,
   stepNumber: PropTypes.number,
-  title: PropTypes.string,
+  title: PropTypes.node,
 };
 
 export default Step;

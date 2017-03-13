@@ -3,7 +3,9 @@ import React, { Component, PropTypes } from 'react';
 import forEach from 'lodash/forEach';
 import Input from 'react-toolbox/lib/input/Input';
 
-import Step from '../../../components/step/Step';
+import {
+  StepStyled,
+} from './styles';
 
 class StepOne extends Component {
   componentWillUpdate() {
@@ -33,7 +35,7 @@ class StepOne extends Component {
     } = this.props;
 
     return (
-      <Step { ...this.props }>
+      <StepStyled { ...this.props }>
         <Input
           icon="person"
           label='Name'
@@ -52,7 +54,7 @@ class StepOne extends Component {
           type='email'
           value={email}
         />
-      </Step>
+      </StepStyled>
     );
   }
 }
