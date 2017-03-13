@@ -22,7 +22,6 @@ class Step extends Component {
     const {
       children,
       className,
-      isActive,
       isFirstStep,
       isLastStep,
       title,
@@ -31,7 +30,6 @@ class Step extends Component {
     return (
       <StepContainer
         className={className}
-        isActive={isActive}
         isFirstStep={isFirstStep}
         isLastStep={isLastStep}
       >

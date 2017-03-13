@@ -5,6 +5,7 @@ import Percent from '../icons/Percent';
 
 export const PercentContainer = styled('div', {
   ...utility.flexFlow('row', 'nowrap'),
+  flexShrink: 0,
 });
 
 export const PercentStyled = styled(Percent, (props) => {

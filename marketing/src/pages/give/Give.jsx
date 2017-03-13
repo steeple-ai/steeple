@@ -23,7 +23,8 @@ class Give extends Component {
       creditCardNumber: '',
       creditCardZip: '',
       email: '',
-      name: '',
+      firstName: '',
+      lastName: '',
       offering: '',
       paycheck: '',
       tithePercent: 10,
@@ -55,7 +56,8 @@ class Give extends Component {
       creditCardNumber,
       creditCardZip,
       email,
-      name,
+      firstName,
+      lastName,
       offering,
       paycheck,
       tithePercent,
@@ -68,13 +70,14 @@ class Give extends Component {
         <MainWrapper>
 
           <Stepper
-            stepIndex={3}
+            stepIndex={1}
           >
             <StepOne
               email={email}
+              firstName={firstName}
               handleChange={this.handleChange}
               isRequired
-              name={name}
+              lastName={lastName}
               title={<StepOneTitle />}
             />
             <StepTwo
@@ -88,7 +91,7 @@ class Give extends Component {
             />
             <StepThree
               isRequired
-              name={name}
+              name={`${firstName} ${lastName}`}
               title={<StepThreeTitle />}
               handleChange={this.handleChange}
               total={total}

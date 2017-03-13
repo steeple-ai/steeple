@@ -13,7 +13,6 @@ class Stepper extends Component {
     super(props);
 
     this.state = {
-      // Set activeStep to null and wait for componentWillMount.
       activeStep: props.stepIndex,
       totalSteps: Children.count(props.children),
       ...Children.map(props.children, (child) => !child.props.isRequired),
@@ -87,7 +86,10 @@ class Stepper extends Component {
 
     return (
       <StepperContainer>
-        <StepperBody>
+        <StepperBody
+          activeStep={activeStep}
+          totalSteps={totalSteps}
+        >
           {this.renderChildren()}
         </StepperBody>
 
