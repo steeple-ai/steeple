@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import forEach from 'lodash/forEach';
 import Input from 'react-toolbox/lib/input/Input';
 
-import Step from '../../step/Step';
+import Step from '../../../components/step/Step';
 
 class StepOne extends Component {
   componentWillUpdate() {

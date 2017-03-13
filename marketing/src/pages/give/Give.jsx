@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-import Toolbar from '../toolbar/Toolbar';
-import Stepper from '../stepper/Stepper';
+import Stepper from '../../components/stepper/Stepper';
 import StepOne from './stepOne/StepOne';
 import StepTwo from './stepTwo/StepTwo';
 import StepThree from './stepThree/StepThree';
@@ -62,12 +61,11 @@ class Give extends Component {
 
     return (
       <GiveContainer>
-        <Toolbar title="C3 Equippers" />
 
         <MainWrapper>
 
           <Stepper
-            stepIndex={3}
+            stepIndex={1}
           >
             <StepOne
               email={email}

@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 
-import Logotype from '../logotype/Logotype';
-import HeroNavigation from './heroNavigation/HeroNavigation';
+import Logotype from '../../components/logotype/Logotype';
+import HomeNavigation from './homeNavigation/HomeNavigation';
 
 import {
-  HeroContainer,
+  HomeContainer,
   MainContent,
   Title,
 } from './styles';
 
-class Hero extends Component {
+class Home extends Component {
   render() {
     return (
-      <HeroContainer>
-        <HeroNavigation />
+      <HomeContainer>
+        <HomeNavigation />
 
         <MainContent>
           <Logotype />
@@ -21,9 +21,9 @@ class Hero extends Component {
             Offerings Powered by the future.
           </Title>
         </MainContent>
-      </HeroContainer>
+      </HomeContainer>
     );
   }
 }
 
-export default Hero;
+export default Home;

@@ -6,7 +6,6 @@ import {
   StepperBody,
   StepperFooter,
   StepperContainer,
-  StepperTitle,
 } from './styles';
 
 class Stepper extends Component {
@@ -17,10 +16,7 @@ class Stepper extends Component {
       // Set activeStep to null and wait for componentWillMount.
       activeStep: props.stepIndex,
       totalSteps: Children.count(props.children),
-      ...Children.map(props.children, (child) => ({
-        canChangeStep: !child.props.isRequired,
-        title: child.props.title,
-      })),
+      ...Children.map(props.children, (child) => !child.props.isRequired),
     };
 
     /**
@@ -59,7 +55,7 @@ class Stepper extends Component {
     return Children.map(children, (child, key) => {
       // Since stepNumber gets rendered, 0 index is a bad idea.
       const stepNumber = key + 1;
-      const canChangeStep = this.state[key].canChangeStep;
+      const canChangeStep = this.state[key];
 
       return React.cloneElement(child, {
         ...child.props,
@@ -74,10 +70,7 @@ class Stepper extends Component {
 
           if (canMoveToNextStep !== canChangeStep) {
             this.setState(() => ({
-              [key]: {
-                canChangeStep: canMoveToNextStep,
-                title: child.props.title,
-              },
+              [key]: canMoveToNextStep,
             }));
           }
         },
@@ -90,16 +83,10 @@ class Stepper extends Component {
       activeStep,
       totalSteps,
     } = this.state;
-    const activeStepState = this.state[activeStep - 1];
-    const canChangeStep = activeStepState.canChangeStep;
-    const title = activeStepState.title;
+    const canChangeStep = this.state[activeStep - 1];
 
     return (
       <StepperContainer>
-        <StepperTitle>
-          {title}
-        </StepperTitle>
-
         <StepperBody>
           {this.renderChildren()}
         </StepperBody>

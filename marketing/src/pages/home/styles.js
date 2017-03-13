@@ -2,7 +2,7 @@ import { styled } from 'styletron-react';
 
 import { color, layout, utility } from '../../styles/';
 
-export const HeroContainer = styled('div', {
+export const HomeContainer = styled('div', {
   ...utility.flexFlow('column', 'nowrap'),
   flex: 1,
   ...utility.overflowY,

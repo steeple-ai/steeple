@@ -3,8 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import {
   FormHeader,
   TotalAmount,
-} from '../../typography';
-import Step from '../../step/Step';
+} from '../../../components/typography';
+import Step from '../../../components/step/Step';
 
 import {
   InputStyled,

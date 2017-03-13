@@ -7,14 +7,14 @@ import Switch from 'react-router-dom/Switch';
 import createBrowserHistory from 'history/createBrowserHistory'
 
 // Import Route components.
-import Hero from '../hero/Hero';
-import Give from '../give/Give';
+import Home from '../../pages/home/Home';
+import Give from '../../pages/give/Give';
 
 import {
   ApplicationContainer,
 } from './styles';
 
-const NoMatch = () => <Hero />;
+const NoMatch = () => <Home />;
 
 class Application extends Component {
   render() {
@@ -22,7 +22,7 @@ class Application extends Component {
       <Router history={createBrowserHistory()}>
         <ApplicationContainer>
           <Switch>
-            <Route exact path="/" component={Hero} />
+            <Route exact path="/" component={Home} />
 
             <Route path="/give" component={Give} />
 

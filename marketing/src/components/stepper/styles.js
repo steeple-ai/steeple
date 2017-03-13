@@ -10,20 +10,6 @@ export const StepperContainer = styled('div', {
   overflow: 'hidden',
 });
 
-export const StepperTitle = styled('div', {
-  background: color.grey96,
-
-  flexShrink: 0,
-
-  boxSizing: 'border-box',
-
-  height: '52px',
-
-  paddingTop: '17px',
-  paddingRight: `${layout.stepper.space * 2}px`,
-  paddingLeft: `${layout.stepper.space * 2}px`,
-});
-
 export const StepperBody = styled('div', {
   flex: 1,
   ...utility.overflowY,

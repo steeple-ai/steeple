@@ -6,9 +6,9 @@ import {
   FormHeader,
   GreyText,
   TotalAmount,
-} from '../../typography';
-import Step from '../../step/Step';
-import PercentInput from '../../percentInput/PercentInput';
+} from '../../../components/typography';
+import Step from '../../../components/step/Step';
+import PercentInput from '../../../components/percentInput/PercentInput';
 
 class StepTwo extends Component {
   componentWillUpdate(nextProps) {
