@@ -37,7 +37,9 @@
       "color-primary-contrast": "var(--color-dark-contrast)",
       "color-accent-contrast": "var(--color-dark-contrast)",
       "slider-snap-color": "var(--palette-amber-500)",
-      "button-disabled-text-color": "hsla(0%, 0%, 100, .7)"
+      "button-disabled-text-color": "hsla(0, 0%, 100%, .7)",
+      "button-primary-color-contrast": "hsla(0, 0%, 0%, .87)",
+      "button-neutral-color-contrast": "hsla(0, 0%, 100%, .93)"
     },
     "output": "public/react-toolbox"
   },

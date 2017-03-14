@@ -3,6 +3,7 @@ import React, { Children, Component, PropTypes } from 'react';
 import {
   ButtonLeftStyled,
   ButtonRightStyled,
+  ButtonRightFinishStyled,
   ButtonArrowIcon,
   StepperBody,
   StepperFooter,
@@ -106,13 +107,13 @@ class Stepper extends Component {
         >
           next
           <ButtonArrowIcon className="material-icons">navigate_next</ButtonArrowIcon>
-        </ButtonRightStyled> : <ButtonRightStyled
+        </ButtonRightStyled> : <ButtonRightFinishStyled
           disabled={!canChangeStep}
           primary
           raised
         >
           finish
-        </ButtonRightStyled>}
+        </ButtonRightFinishStyled>}
       </StepperFooter>
     ];
   }

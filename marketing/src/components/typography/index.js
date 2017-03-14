@@ -22,6 +22,6 @@ export const TotalAmount = styled('h1', {
 });
 
 export const GreyText = styled('span', {
-  color: color.inputLabelColor,
+  color: 'hsla(0, 0%, 100%, .7)',
   '-webkit-font-smoothing': 'antialiased',
 });

@@ -58,6 +58,15 @@ export const ButtonRightStyled = styled(Button, {
   paddingLeft: '15px !important',
 });
 
+export const ButtonRightFinishStyled = styled(Button, {
+  ...baseButtonStyles,
+
+  marginLeft: 'auto',
+
+  paddingRight: '15px !important',
+  paddingLeft: '15px !important',
+});
+
 export const ButtonArrowIcon = styled('i', {
   alignSelf: 'center', // Safari doesn't inherit the alignment correctly from the parent.
 });
