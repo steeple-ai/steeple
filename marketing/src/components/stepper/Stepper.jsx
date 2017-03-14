@@ -3,9 +3,9 @@ import React, { Children, Component, PropTypes } from 'react';
 import {
   ButtonLeftStyled,
   ButtonRightStyled,
+  ButtonArrowIcon,
   StepperBody,
   StepperFooter,
-  StepperContainer,
 } from './styles';
 
 class Stepper extends Component {
@@ -84,35 +84,37 @@ class Stepper extends Component {
     } = this.state;
     const canChangeStep = this.state[activeStep - 1];
 
-    return (
-      <StepperContainer>
-        <StepperBody
-          activeStep={activeStep}
-          totalSteps={totalSteps}
+    return [
+      <StepperBody
+        activeStep={activeStep}
+        totalSteps={totalSteps}
+      >
+        {this.renderChildren()}
+      </StepperBody>,
+
+      <StepperFooter>
+        { activeStep !== 1 && <ButtonLeftStyled onClick={this.onClickBack}>
+          <ButtonArrowIcon className="material-icons">navigate_before</ButtonArrowIcon>
+          Back
+        </ButtonLeftStyled> }
+
+        {activeStep !== totalSteps ? <ButtonRightStyled
+          disabled={!canChangeStep}
+          onClick={this.onClickNext}
+          primary
+          raised
         >
-          {this.renderChildren()}
-        </StepperBody>
-
-        <StepperFooter>
-          { activeStep !== 1 && <ButtonLeftStyled onClick={this.onClickBack}>
-            <i className="material-icons">navigate_before</i>
-            Back
-          </ButtonLeftStyled> }
-
-          {activeStep !== totalSteps ? <ButtonRightStyled
-            onClick={this.onClickNext}
-            disabled={!canChangeStep}
-          >
-            next
-            <i className="material-icons">navigate_next</i>
-          </ButtonRightStyled> : <ButtonRightStyled
-            disabled={!canChangeStep}
-          >
-            finish
-          </ButtonRightStyled>}
-        </StepperFooter>
-      </StepperContainer>
-    );
+          next
+          <ButtonArrowIcon className="material-icons">navigate_next</ButtonArrowIcon>
+        </ButtonRightStyled> : <ButtonRightStyled
+          disabled={!canChangeStep}
+          primary
+          raised
+        >
+          finish
+        </ButtonRightStyled>}
+      </StepperFooter>
+    ];
   }
 }
 

@@ -3,13 +3,6 @@ import { layout, utility } from '../../styles';
 
 import Button from 'react-toolbox/lib/button/Button'
 
-
-export const StepperContainer = styled('div', {
-  ...utility.flexFlow('column', 'nowrap'),
-  flex: 1,
-  overflow: 'hidden',
-});
-
 export const StepperBody = styled('div', ({ activeStep, totalSteps }) => {
   return {
     ...utility.flexFlow('row', 'nowrap'),
@@ -39,24 +32,32 @@ export const StepperFooter = styled('div', {
   padding: '0 8px',
 });
 
-const iconSidePadding = '2px';
+const iconSidePadding = '8px !important';
 
-export const ButtonLeftStyled = styled(Button, {
+const baseButtonStyles = {
   display: 'flex !important', // Have to do this to override react-toolbox.
 
-  minWidth: 'auto !important',
+  boxShadow: 'none !important',
 
-  paddingRight: iconSidePadding,
-  paddingLeft: '8px !important',
+  minWidth: 'auto !important',
+};
+
+export const ButtonLeftStyled = styled(Button, {
+  ...baseButtonStyles,
+
+  paddingRight: '15px !important',
+  paddingLeft: iconSidePadding,
 });
 
 export const ButtonRightStyled = styled(Button, {
-  display: 'flex !important', // Have to do this to override react-toolbox.
+  ...baseButtonStyles,
 
   marginLeft: 'auto',
 
-  minWidth: 'auto !important',
+  paddingRight: iconSidePadding,
+  paddingLeft: '15px !important',
+});
 
-  paddingRight: '8px !important',
-  paddingLeft: iconSidePadding,
+export const ButtonArrowIcon = styled('i', {
+  alignSelf: 'center', // Safari doesn't inherit the alignment correctly from the parent.
 });

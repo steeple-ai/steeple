@@ -8,11 +8,6 @@ import StepTwoTitle from './stepTwo/StepTwoTitle';
 import StepThree from './stepThree/StepThree';
 import StepThreeTitle from './stepThree/StepThreeTitle';
 
-import {
-  GiveContainer,
-  MainWrapper,
-} from './styles';
-
 class Give extends Component {
   constructor(props) {
     super(props);
@@ -65,44 +60,38 @@ class Give extends Component {
     } = this.state;
 
     return (
-      <GiveContainer>
-
-        <MainWrapper>
-
-          <Stepper
-            stepIndex={1}
-          >
-            <StepOne
-              email={email}
-              firstName={firstName}
-              handleChange={this.handleChange}
-              isRequired
-              lastName={lastName}
-              title={<StepOneTitle />}
-            />
-            <StepTwo
-              handleChange={this.handleChange}
-              isRequired
-              offering={offering}
-              paycheck={paycheck}
-              tithePercent={tithePercent}
-              title={<StepTwoTitle />}
-              total={total}
-            />
-            <StepThree
-              isRequired
-              name={`${firstName} ${lastName}`}
-              title={<StepThreeTitle />}
-              handleChange={this.handleChange}
-              total={total}
-              creditCardCvc={creditCardCvc}
-              creditCardExpiration={creditCardExpiration}
-              creditCardNumber={creditCardNumber}
-              creditCardZip={creditCardZip}
-            />
-          </Stepper>
-        </MainWrapper>
-      </GiveContainer>
+      <Stepper
+        stepIndex={1}
+      >
+        <StepOne
+          email={email}
+          firstName={firstName}
+          handleChange={this.handleChange}
+          isRequired
+          lastName={lastName}
+          title={<StepOneTitle />}
+        />
+        <StepTwo
+          handleChange={this.handleChange}
+          isRequired
+          offering={offering}
+          paycheck={paycheck}
+          tithePercent={tithePercent}
+          title={<StepTwoTitle />}
+          total={total}
+        />
+        <StepThree
+          isRequired
+          name={`${firstName} ${lastName}`}
+          title={<StepThreeTitle />}
+          handleChange={this.handleChange}
+          total={total}
+          creditCardCvc={creditCardCvc}
+          creditCardExpiration={creditCardExpiration}
+          creditCardNumber={creditCardNumber}
+          creditCardZip={creditCardZip}
+        />
+      </Stepper>
     );
   }
 }
