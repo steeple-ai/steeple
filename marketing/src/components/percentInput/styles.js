@@ -112,7 +112,7 @@ export const Value = styled('span', (props) => {
 
   return {
     fontSize: '12px',
-    color: 'hsla(0, 0%, 0%, .38)',
+    color: 'hsla(0, 0%, 100%, .7)',
 
     position: 'absolute',
     ...positionStyles,

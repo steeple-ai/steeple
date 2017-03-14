@@ -39,7 +39,10 @@
       "slider-snap-color": "var(--palette-amber-500)",
       "button-disabled-text-color": "hsla(0, 0%, 100%, .7)",
       "button-primary-color-contrast": "hsla(0, 0%, 0%, .87)",
-      "button-neutral-color-contrast": "hsla(0, 0%, 100%, .93)"
+      "button-neutral-color-contrast": "hsla(0, 0%, 100%, .93)",
+      "input-text-label-color": "hsla(0, 0%, 100%, .7)",
+      "input-text-bottom-border-color": "hsla(0, 0%, 100%, .7)",
+      "color-text": "#fff"
     },
     "output": "public/react-toolbox"
   },

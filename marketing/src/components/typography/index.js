@@ -14,7 +14,7 @@ export const FormHeader = styled('h1', {
 export const TotalAmount = styled('h1', {
   fontFamily: '\'Space Mono\', monospace',
   fontSize: '32px',
-  color: color.textColor,
+  color: color.white,
   '-webkit-font-smoothing': 'antialiased',
 
   marginTop: '8px',
@@ -22,6 +22,6 @@ export const TotalAmount = styled('h1', {
 });
 
 export const GreyText = styled('span', {
-  color: 'hsla(0, 0%, 100%, .7)',
+  color: color.inputLabelColor,
   '-webkit-font-smoothing': 'antialiased',
 });
